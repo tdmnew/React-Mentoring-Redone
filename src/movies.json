@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "The Lobster",
+        "genre": "Comedy",
+        "releasedate": "2015-05-15",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/31k7lSkQPbL._AC_.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Brazil",
+        "genre": "Sci-Fi",
+        "releasedate": "1988-05-05",
+        "image": "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/038bd6c1d338006d675c746601c4f0ee_3bda6292-4d01-4a31-bae3-822a62fe1453.jpg?v=1573585199"
+    },
+    {
+        "id": 3,
+        "title": "The Last Action Hero",
+        "genre": "Action",
+        "releasedate": "1993-08-13",
+        "image": "https://cdn11.bigcommerce.com/s-yshlhd/images/stencil/1280x1280/products/21708/165294/full.thelastactionhero_5313__00950.1572397138.jpg?c=2?imbypass=on"
+    },
+    {
+        "id": 4,
+        "title": "The Fugitive",
+        "genre": "Thriller",
+        "releasedate": "1994-01-27",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/81qLgBUxVZL._AC_SY500_.jpg"
+    }
+]

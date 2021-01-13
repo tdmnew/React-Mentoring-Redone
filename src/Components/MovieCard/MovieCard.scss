@@ -1,0 +1,94 @@
+.moviecard {
+    display: flex;
+    flex-direction: column;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    padding: 0.25rem;
+
+    .poster {
+        position: relative;
+
+        &__img {
+            height: 20rem;
+        }
+
+        &__btn {
+            position: absolute;
+            cursor: pointer;
+            border-radius: 20px;
+            border: none;
+            color: white;
+            background: #232323;
+            font-size: 20px;
+            top: .75rem;
+            right: .75rem;
+            padding: .2rem .7rem;
+
+            &:focus {
+                outline: 0;
+            }
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            border-radius: 5px;
+            right: .75rem;
+            top: .75rem;
+            height: 5rem;
+            width: 8rem;
+            background: #232323; 
+
+            &__close {
+                width: 1rem;
+                left: 6.75rem;
+            }
+
+            &__edit, &__delete, &__close {
+                cursor: pointer;
+                font-weight: lighter;
+                color: white;
+                background: #232323;
+                border: none;
+            }
+
+            &__edit:hover, &__delete:hover {
+                background: #f65261;
+            }
+        }
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+
+        &__top {
+            height: 1rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            &--title {
+                font-weight: lighter;
+                font-size: 15px;
+            }
+
+            &--year {
+                border-radius: 2px;
+                font-size: 12px;
+                padding: 0 0.5rem;
+                border: 1px solid grey;
+            }
+        }
+
+        &__bottom {
+            height: 1rem;
+
+            &--genre {
+                font-size: 12px;
+                align-self: flex-start;
+            }
+        }
+    }
+}

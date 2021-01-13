@@ -1,0 +1,41 @@
+.movielist {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 47.5rem;
+    color: #ffffff;
+    padding-bottom: 1rem;
+
+    @media (max-width: 815px) {
+        width: 40rem;
+        justify-content: center;
+    }
+
+    @media (max-width: 700px) {
+        width: auto;
+    }
+}
+
+.total {
+    width: 46rem;
+    color: #ffffff;
+    background: #232323;
+
+    margin: 0.5rem 0 0 0;
+
+    @media (max-width: 815px) {
+        width: auto;
+        left: .5rem;
+    }
+
+    &__text {
+        font-weight: lighter;
+    }
+
+    &__number {
+        font-weight: bold;
+    }
+
+}
