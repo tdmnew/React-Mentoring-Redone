@@ -1,40 +1,30 @@
 import React from "react";
 import propTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 
 import { ModalUpdaterContext } from "../../Context/ModalContext.js";
-import { DetailsUpdaterContext } from "../../Context/DetailsContext.js";
 
 import "./MovieCard.scss";
 
-export default function MovieCard({movie}) {
+export default function MovieCard({ movie }) {
     const [menuToggled, setMenuToggled] = React.useState(false);
-
     const setModalOptions = React.useContext(ModalUpdaterContext);
-    const setDetailsOptions = React.useContext(DetailsUpdaterContext);
-
-    const toggleMovieDetails = (e) => {
-        e.stopPropagation();
-        setDetailsOptions({
-            isOpen: true,
-            detailsProps: {...movie},
-        });
-    };
 
     const toggleEditModal = (e) => {
-        e.stopPropagation();
+        e.preventDefault();
         setModalOptions({
             isOpen: true,
             modalProps: {
                 type: "Edit Movie",
-                info: {...movie},
+                info: { ...movie },
             },
         });
         setMenuToggled(!menuToggled);
     };
 
     const toggleDeleteModal = (e) => {
-        const id = movie.id
-        e.stopPropagation();
+        const id = movie.id;
+        e.preventDefault();
         setModalOptions({
             isOpen: true,
             modalProps: { type: "Delete Movie", info: { id } },
@@ -43,7 +33,7 @@ export default function MovieCard({movie}) {
     };
 
     const toggleCardMenu = (e) => {
-        e.stopPropagation();
+        e.preventDefault();
         setMenuToggled(!menuToggled);
     };
 
@@ -53,62 +43,74 @@ export default function MovieCard({movie}) {
     };
 
     return (
-        <div className="moviecard">
-            <div className="moviecard poster" onClick={toggleMovieDetails}>
-                <img
-                    className="moviecard poster__img"
-                    src={movie.poster_path}
-                    onError={fallbackImage}
-                    alt={`${movie.title} poster`}
-                />
-                <button
-                    className="moviecard poster__btn"
-                    onClick={toggleCardMenu}
-                    style={{ display: menuToggled ? "none" : "inherit" }}
-                >
-                    &#8942;
-                </button>
-                <div
-                    className="moviecard poster menu"
-                    style={{ display: menuToggled ? "inherit" : "none" }}
-                >
-                    <button
-                        className="moviecard poster menu__close"
-                        value="close"
-                        onClick={toggleCardMenu}
-                    >
-                        X
-                    </button>
-                    <button
-                        className="moviecard poster menu__edit"
-                        value="edit"
-                        onClick={toggleEditModal}
-                    >
-                        Edit
-                    </button>
-                    <button
-                        className="moviecard poster menu__delete"
-                        value="delete"
-                        onClick={toggleDeleteModal}
-                    >
-                        Delete
-                    </button>
+        <>
+            <NavLink className="link" to={`/films/${movie.id}`}>
+                <div className="moviecard">
+                    <div className="moviecard poster">
+                        <img
+                            className="moviecard poster__img"
+                            src={movie.poster_path}
+                            onError={fallbackImage}
+                            alt={`${movie.title} poster`}
+                        />
+                        <button
+                            className="moviecard poster__btn"
+                            onClick={toggleCardMenu}
+                            style={{
+                                display: menuToggled ? "none" : "inherit",
+                            }}
+                        >
+                            &#8942;
+                        </button>
+                        <div
+                            className="moviecard poster menu"
+                            style={{
+                                display: menuToggled ? "inherit" : "none",
+                            }}
+                        >
+                            <button
+                                className="moviecard poster menu__close"
+                                value="close"
+                                onClick={toggleCardMenu}
+                            >
+                                X
+                            </button>
+                            <button
+                                className="moviecard poster menu__edit"
+                                value="edit"
+                                onClick={toggleEditModal}
+                            >
+                                Edit
+                            </button>
+                            <button
+                                className="moviecard poster menu__delete"
+                                value="delete"
+                                onClick={toggleDeleteModal}
+                            >
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                    <div className="moviecard details">
+                        <div className="moviecard details__top">
+                            <h3 className="moviecard details__top--title">
+                                {movie.title}
+                            </h3>
+                            <span className="moviecard details__top--year">
+                                {movie.release_date.substring(0, 4)}
+                            </span>
+                        </div>
+                        <div className="moviecard details__bottom">
+                            <span className="moviecard details__bottom--genre">
+                                {movie.genres.length > 1
+                                    ? movie.genres.join(", ")
+                                    : movie.genres}
+                            </span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className="moviecard details">
-                <div className="moviecard details__top">
-                    <h3 className="moviecard details__top--title">{movie.title}</h3>
-                    <span className="moviecard details__top--year">
-                        {movie.release_date.substring(0, 4)}
-                    </span>
-                </div>
-                <div className="moviecard details__bottom">
-                    <span className="moviecard details__bottom--genre">
-                        {movie.genres.length > 1 ? movie.genres.join(", ") : movie.genres}
-                    </span>
-                </div>
-            </div>
-        </div>
+            </NavLink>
+        </>
     );
 }
 

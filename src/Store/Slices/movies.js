@@ -1,7 +1,8 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
-    movies: [],
+    selectedMovie: {},
+    movies: []
 };
 
 const moviesSlice = createSlice({
@@ -13,6 +14,11 @@ const moviesSlice = createSlice({
         },
         editMovie: (state, action) => {
             let updatedMovie = action.payload;
+            // Update movie details if the film is edited
+            if(state.selectedMovie.id === updatedMovie.id) {
+                state.selectedMovie = action.payload;
+            }
+            //Add the updated movie to the array
             state.movies = state.movies.map((movie) => {
                 if (movie.id === updatedMovie.id) {
                     return { ...movie, ...updatedMovie };
@@ -26,7 +32,13 @@ const moviesSlice = createSlice({
                 return movie.id !== id;
             });
         },
+        getMovie: (state, action) => {
+            state.selectedMovie = action.payload;
+        },
         fetchMovies: (state, action) => {
+            state.movies = action.payload;
+        },
+        searchMovies: (state, action) => {
             state.movies = action.payload;
         },
         filterMovies: (state, action) => {
@@ -44,9 +56,11 @@ const moviesSlice = createSlice({
 
 export const {
     fetchMovies,
+    searchMovies,
     sortMovies,
     filterMovies,
     addMovie,
+    getMovie,
     editMovie,
     deleteMovie,
 } = moviesSlice.actions;

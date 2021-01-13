@@ -41,12 +41,6 @@
             position: relative;
             right: 3rem;
             padding: 0 1rem;
-
-            &--search {
-                @extend .btn;
-                background: url("../../Assets/Images/searching.svg") 50% 50% no-repeat;
-                background-size: 16px 17px;
-            }
         }
     }
 
@@ -103,6 +97,7 @@
 
 
             &__btn {
+                text-decoration: none;
                 height: 2.5rem;
                 width: 10rem;
                 color: #ffffff;

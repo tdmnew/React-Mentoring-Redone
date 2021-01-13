@@ -1,44 +1,33 @@
 import React from "react";
-import { ModalUpdaterContext } from "../../Context/ModalContext.js";
-import {
-    DetailsUpdaterContext,
-    DetailsStateContext,
-} from "../../Context/DetailsContext.js";
-
-import MovieDetails from "../MovieDetails/MovieDetails.js";
-
+import { useParams, useHistory } from "react-router-dom";
 import "./Header.scss";
 
-export default function Header() {
-    const setModalOptions = React.useContext(ModalUpdaterContext);
+import { ModalUpdaterContext } from "../../Context/ModalContext.js";
+import MovieDetails from "../MovieDetails/MovieDetails.js";
+import Search from "./Search.js";
 
-    const { isOpen } = React.useContext(DetailsStateContext);
-    const setDetailsOptions = React.useContext(DetailsUpdaterContext);
+export default function Header() {
+    const { id } = useParams();
+    const history = useHistory();
+    const setModalOptions = React.useContext(ModalUpdaterContext);
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    React.useEffect(() => {
+        let path = history.location.pathname.split('/')[1]
+        if(path === 'films') {
+            console.log(path)
+            setIsOpen(true);
+        }
+    }, [id])
+
 
     const toggleAddMovieModal = () => {
         setModalOptions({ isOpen: true, modalProps: { type: "Add Movie" } });
-    }
-
-    const closeMovieDetails = () => {
-        setDetailsOptions({
-            isOpen: false,
-        });
-    }
-
-    const Search = () => {
-        return (
-            <div className="search">
-                <h2 className="search title">FIND YOUR MOVIE</h2>
-                <div className="search search-bar">
-                    <input
-                        className="search search-bar__input"
-                        placeholder="What do you want to watch?"
-                    />
-                    <button className="search search-bar__btn">SEARCH</button>
-                </div>
-            </div>
-        );
     };
+
+    const toggleDetails = () => {
+        setIsOpen(false);
+    }
 
     return (
         <>
@@ -53,7 +42,7 @@ export default function Header() {
                     {isOpen ? (
                         <button
                             className="header__top btn--search"
-                            onClick={closeMovieDetails}
+                            onClick={toggleDetails}
                         >
                         </button>
                     ) : (
@@ -65,7 +54,7 @@ export default function Header() {
                         </button>
                     )}
                 </div>
-                {isOpen ? <MovieDetails /> : <Search />}
+                {isOpen ? <MovieDetails id={id} /> : <Search />}
             </div>
         </>
     );

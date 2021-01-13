@@ -1,60 +1,39 @@
-import "./App.scss";
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import "./App.scss";
+
+import Layout from "./Components/Layout/Layout.js";
 import Header from "./Components/Header/Header.js";
 import Nav from "./Components/Nav/Nav.js";
 import MovieList from "./Components/MovieList/MovieList.js";
-import Footer from "./Components/Footer/Footer.js";
 
-import ErrorBoundary from "./Components/ErrorBoundary.js";
-
-//Modals
-import Modal from "./Components/Modals/RootModal";
-import { ModalContext } from "./Context/ModalContext.js";
-
-//Movie Details
-import { DetailsContext } from "./Context/DetailsContext.js";
-
-//Redux
-import { useDispatch, useSelector } from 'react-redux';
-import { sagaActions } from "./Store/Sagas/sagaActions";
-import { sortMovies } from "./Store/Slices/movies.js";
+import NoMovies from "./Components/NoMovies/NoMovies.js";
+import NotFound from "./Components/NotFound/NotFound.js";
 
 export default function App() {
-    const dispatch = useDispatch();
-    const movies = useSelector(state => state.movies);
-    const genres = movies.map((movie) => movie.genres).flat().filter((v, i, s) => s.indexOf(v) === i);
-
-    React.useEffect(() => {
-        dispatch({ type: sagaActions.FETCH_MOVIES })
-    }, []);
-
-    const sort = (e) => {
-        dispatch(sortMovies(e.target.value))
-    }
-    
-    const filter = (e) => {
-        const genre = e.target.getAttribute('href').slice(1)
-        if(genre === "All") {
-            dispatch({ type: sagaActions.FETCH_MOVIES })
-        } else {
-            dispatch({ type: sagaActions.FILTER_MOVIES, payload: genre })
-        }
-    }
-
     return (
-        <>
-            <ModalContext>
-                <DetailsContext>
-                    <Header />
-                    <Nav sort={sort} filter={filter} genres={genres} />
-                    <ErrorBoundary>
+        <Router>
+            <Layout>
+                <Switch>
+                    <Route exact path="/">
+                        <Header />
+                        <Nav />
+                        <NoMovies />
+                    </Route>
+                    <Route path="/films/:id">
+                        <Header />
+                        <Nav />
                         <MovieList />
-                        <Modal />
-                    </ErrorBoundary>
-                    <Footer />
-                </DetailsContext>
-            </ModalContext>
-        </>
+                    </Route>
+                    <Route path="/search/:id">
+                        <Header />
+                        <Nav />
+                        <MovieList />
+                    </Route>
+                    <Route component={NotFound} />
+                </Switch>
+            </Layout>
+        </Router>
     );
 }
