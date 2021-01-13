@@ -22,10 +22,10 @@ export const ModalContext = ({ children }) => {
     });
 
     return (
-        <ModalUpdaterContext.Provider value={setModalOptions}>
-            <ModalStateContext.Provider value={modalOptions}>
-                { children }
-            </ModalStateContext.Provider>
-        </ModalUpdaterContext.Provider>
+            <ModalUpdaterContext.Provider value={setModalOptions}>
+                <ModalStateContext.Provider value={modalOptions}>
+                    {children}
+                </ModalStateContext.Provider>
+            </ModalUpdaterContext.Provider>
     );
 };

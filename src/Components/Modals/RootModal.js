@@ -5,12 +5,12 @@ import AddMovie from "./AddMovie/AddMovie.js";
 import EditMovie from "./EditMovie/EditMovie.js";
 import DeleteMovie from "./DeleteMovie/DeleteMovie.js";
 
-export default function Modal({ movies, setMovies }) {
+export default function Modal({ addMovie, editMovie, deleteMovie }) {
     const { isOpen, modalProps } = React.useContext(ModalStateContext);
     const setModalOptions = React.useContext(ModalUpdaterContext);
 
     const defaultMovieInfo = {
-        id: modalProps.type === "Edit Movie" ? modalProps.info.id : movies.length + 10,
+        id: modalProps.type === "Edit Movie" ? modalProps.info.id : Math.random(),
         title: modalProps.type === "Edit Movie" ? modalProps.info.title : "",
         genre: modalProps.type === "Edit Movie" ? modalProps.info.genre : "",
         releasedate: modalProps.type === "Edit Movie" ? modalProps.info.releasedate : "",
@@ -28,44 +28,38 @@ export default function Modal({ movies, setMovies }) {
         }
     }, [modalProps]);
 
-    function reset(e) {
+    const reset = (e) => {
         e.preventDefault();
         setMovieInfo({...defaultMovieInfo}); 
     }
 
-    function closeModal() {
+    const closeModal = () => {
         setModalOptions({ isOpen: false });
     }
 
-    function updateMovie(e) {
+    const updateMovie = (e) => {
+        console.log(typeof e.target.value);
         e.preventDefault();
         setMovieInfo({ ...movieInfo, [e.target.name]: e.target.value });
     }
 
-    function handleSubmit(e) {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (modalProps.type === "Add Movie") {
-            let movieList = movies;
-            movieList.push({ ...movieInfo });
-            setMovies([...movieList]);
-        } else if (modalProps.type === "Delete Movie") {
-            let movieList = movies.filter((movie) => {
-                return movie.id !== modalProps.info.id;
-            });
-            setMovies(movieList);
-        } else {
-            let movieList = movies.map((movie) => {
-                if (movie.id === movieInfo.id) {
-                    let newMovie = { ...movie, ...movieInfo };
-                    return newMovie;
-                }
-
-                return movie;
-            });
-            setMovies(movieList);
+        switch(modalProps.type) {
+            case "Add Movie": 
+                addMovie(movieInfo);
+                break;
+            case "Edit Movie":
+                editMovie(movieInfo);
+                break;
+            case "Delete Movie":
+                deleteMovie(modalProps.info.id);
+                break;
+            default:
+                throw new Error('No case found');
         }
-        
+
         closeModal();
     }
 

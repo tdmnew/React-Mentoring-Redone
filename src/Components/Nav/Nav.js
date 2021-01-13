@@ -22,12 +22,12 @@ export default function Nav({ sort }) {
                     <a href="#">CRIME</a>
                 </li>
             </ul>
-            <div className="nav__dropdown">
-                <span className="nav__dropdown heading">SORT BY</span>
-                <select className="nav__dropdown options" onChange={sort} >
-                    <option value="RELEASE DATE">RELEASE DATE</option>
-                    <option value="TITLE">TITLE</option>
-                    <option value="GENRE">GENRE</option>
+            <div className="dropdown">
+                <span className="dropdown__heading">SORT BY</span>
+                <select className="dropdown__options" onChange={sort} >
+                    <option value="releasedate">RELEASE DATE</option>
+                    <option value="title">TITLE</option>
+                    <option value="genre">GENRE</option>
                 </select>
             </div>
         </div>

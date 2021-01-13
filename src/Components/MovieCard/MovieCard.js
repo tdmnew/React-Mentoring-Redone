@@ -2,43 +2,48 @@ import React from "react";
 import propTypes from "prop-types";
 
 import { ModalUpdaterContext } from "../../Context/ModalContext.js";
+import { DetailsUpdaterContext } from "../../Context/DetailsContext.js";
 
 import "./MovieCard.scss";
 
 export default function MovieCard({ id, title, genre, releasedate, url, overview, runtime, image }) {
     const [menuToggled, setMenuToggled] = React.useState(false);
+
     const setModalOptions = React.useContext(ModalUpdaterContext);
+    const setDetailsOptions = React.useContext(DetailsUpdaterContext);
 
-    function toggleModal(e) {
-        e.preventDefault();
-        toggleMenu(e);
-
-        let type = e.target.value;
-        switch (type) {
-            case "edit":
-                setModalOptions({
-                    isOpen: true,
-                    modalProps: { type: "Edit Movie", info: { id, title, genre, releasedate, url, overview, runtime } }
-                });
-                break;
-            case "delete":
-                setModalOptions({
-                    isOpen: true,
-                    modalProps: { type: "Delete Movie", info: { id } }
-                });
-                break;
-            default:
-                throw new Error("No case match");
-        }
+    const toggleMovieDetails = (e) => {
+        e.stopPropagation();
+        setDetailsOptions({
+            isOpen: true,
+            detailsProps: { id, title, genre, releasedate, url, overview, runtime, image }
+        });
     }
 
-    function toggleMenu(e) {
+    const toggleEditModal = (e) => {
+        e.stopPropagation();
+        setModalOptions({
+            isOpen: true,
+            modalProps: { type: "Edit Movie", info: { id, title, genre, releasedate, url, overview, runtime } }
+        });
+    }
+
+    const toggleDeleteModal = (e) => {
+        e.stopPropagation();
+        setModalOptions({
+            isOpen: true,
+            modalProps: { type: "Delete Movie", info: { id } }
+        });
+    }
+
+    const toggleCardMenu = (e) => {
+        e.stopPropagation();
         setMenuToggled(!menuToggled);
     }
 
     return (
         <div className="moviecard">
-            <div className="moviecard poster">
+            <div className="moviecard poster" onClick={toggleMovieDetails}>
                 <img
                     className="moviecard poster__img"
                     src={image}
@@ -46,7 +51,7 @@ export default function MovieCard({ id, title, genre, releasedate, url, overview
                 />
                 <button
                     className="moviecard poster__btn"
-                    onClick={toggleMenu}
+                    onClick={toggleCardMenu}
                     style={{ display: menuToggled ? "none" : "inherit" }}
                 >
                     &#8942;
@@ -58,21 +63,21 @@ export default function MovieCard({ id, title, genre, releasedate, url, overview
                     <button
                         className="moviecard poster menu__close"
                         value="close"
-                        onClick={toggleMenu}
+                        onClick={toggleCardMenu}
                     >
                         X
                     </button>
                     <button
                         className="moviecard poster menu__edit"
                         value="edit"
-                        onClick={toggleModal}
+                        onClick={toggleEditModal}
                     >
                         Edit
                     </button>
                     <button
                         className="moviecard poster menu__delete"
                         value="delete"
-                        onClick={toggleModal}
+                        onClick={toggleDeleteModal}
                     >
                         Delete
                     </button>
@@ -113,6 +118,6 @@ MovieCard.defaultProps = {
     releasedate: "1982-01-01",
     url: "",
     overview: "",
-    runtime: "",
+    runtime: "120",
     image: "https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg",
 };

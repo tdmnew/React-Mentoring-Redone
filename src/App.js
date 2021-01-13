@@ -14,44 +14,68 @@ import mockMovies from "./movies.json";
 import Modal from "./Components/Modals/RootModal";
 import { ModalContext } from "./Context/ModalContext.js";
 
+//Movie Details
+import { DetailsContext } from "./Context/DetailsContext.js";
+
 export default function App() {
-    const [movies, setMovies] = React.useState(mockMovies);
-    
-    React.useEffect(() => {
-        setMovies([...movies.sort((a, b) => (a.releasedate > b.releasedate) ? 1 : -1)])
-    },[])
+  const [movies, setMovies] = React.useState(mockMovies);
 
-    function sort(e) {
-        e.preventDefault();
-        const sortBy = e.target.value;
+  React.useEffect(() => {
+    sortBy("releasedate");
+  }, []);
 
-        switch(sortBy) {
-            case 'TITLE':
-                setMovies([...movies.sort((a, b) => (a.title > b.title) ? 1 : -1)])
-                break;
-            case 'GENRE':
-                setMovies([...movies.sort((a, b) => (a.genre > b.genre) ? 1 : -1)])
-                break;
-            case 'RELEASE DATE':
-                setMovies([...movies.sort((a, b) => (a.releasedate > b.releasedate) ? 1 : -1)])
-                break;
-            default:
-                throw new Error('No case found');
+  //Sorting
+  const sortBy = (type) => {
+    setMovies([...movies.sort((a, b) => (a[type] > b[type] ? 1 : -1))]);
+  };
+
+  const sort = (e) => {
+    e.preventDefault();
+    sortBy(e.target.value);
+  };
+
+  //Movies Updates
+  const addMovie = (movie) => {
+    let movieList = movies;
+    movieList.push({ ...movie });
+    setMovies([...movieList]);
+  };
+
+  const deleteMovie = React.useCallback(
+    (id) => {
+      setMovies(movies.filter((movie) => movie.id !== id));
+    },
+    [movies]
+  );
+
+  const editMovie = (updatedMovie) => {
+    setMovies(
+      movies.map((movie) => {
+        if (movie.id === updatedMovie.id) {
+          return { ...movie, ...updatedMovie };
         }
-    }
-
-    return (
-        <>
-            <ModalContext>
-                <Header />
-                <Nav sort={sort} />
-                <ErrorBoundary>
-                    <MovieList movies={movies} />
-                    <Modal movies={movies} setMovies={setMovies} />
-                </ErrorBoundary>
-                <Footer />
-            </ModalContext>
-        </>
+        return movie;
+      })
     );
-}
+  };
 
+  return (
+    <>
+      <ModalContext>
+        <DetailsContext>
+          <Header />
+          <Nav sort={sort} />
+          <ErrorBoundary>
+            <MovieList movies={movies} />
+            <Modal
+              addMovie={addMovie}
+              editMovie={editMovie}
+              deleteMovie={deleteMovie}
+            />
+          </ErrorBoundary>
+          <Footer />
+        </DetailsContext>
+      </ModalContext>
+    </>
+  );
+}

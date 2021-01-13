@@ -44,7 +44,7 @@
         }
     }
 
-    &__dropdown {
+    .dropdown {
         @media (max-width: 815px) {
             padding-left: 1rem;
         }
@@ -53,7 +53,7 @@
             padding: 0.5rem;
         }
 
-        .heading {
+        &__heading {
             color: grey;
             padding-right: 1rem;
             font-weight: bold;
@@ -63,7 +63,7 @@
             }
         }
 
-        .options {
+        &__options {
             color: white;
             font-size: 12px;
             font-weight: lighter;
