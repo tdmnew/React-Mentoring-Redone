@@ -1,16 +1,12 @@
 import React from "react";
+import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 
-import {
-    ModalStateContext,
-    ModalUpdaterContext,
-} from "../../Context/ModalContext";
+import { ModalStateContext, ModalUpdaterContext } from "../../Context/ModalContext";
 
 import AddMovie from "./AddMovie/AddMovie.js";
 import EditMovie from "./EditMovie/EditMovie.js";
 import DeleteMovie from "./DeleteMovie/DeleteMovie.js";
-
-import { editMovie, deleteMovie } from "../../Store/Slices/movies.js";
 
 import { sagaActions } from "../../Store/Sagas/sagaActions.js";
 
@@ -20,77 +16,95 @@ export default function Modal() {
     const { isOpen, modalProps } = React.useContext(ModalStateContext);
     const setModalOptions = React.useContext(ModalUpdaterContext);
 
-    const defaultValues = {
-        title: "",
-        tagline: "",
-        vote_average: 0,
-        vote_count: 0,
-        genres: ["Action"],
-        release_date: "",
-        overview: "",
-        budget: 0,
-        revenue: 0,
-        runtime: 0,
-        poster_path:
-            "https://linnea.com.ar/wp-content/uploads/2018/09/404PosterNotFound.jpg",
+    const genres = [
+        "Action",
+        "Adventure",
+        "Animation",
+        "Comedy",
+        "Crime",
+        "Drama",
+        "Fantasy",
+        "Mystery",
+        "Romance",
+        "Science Fiction",
+        "Thriller",
+    ];
+
+    const initialValues = {
+        id: modalProps.info?.id,
+        title: modalProps.info?.title || "",
+        tagline: modalProps.info?.tagline || "No Tagline",
+        vote_average: modalProps.info?.vote_average || 0,
+        vote_count: modalProps.info?.vote_count || 0,
+        genres: modalProps.info?.genres || [],
+        release_date: modalProps.info?.release_date || "",
+        overview: modalProps.info?.overview || "",
+        budget: modalProps.info?.budget || 0,
+        revenue: modalProps.info?.revenue || 0,
+        runtime: modalProps.info?.runtime || 0,
+        url: modalProps.info?.url || "",
+        poster_path: modalProps.info?.poster_path || "https://linnea.com.ar/wp-content/uploads/2018/09/404PosterNotFound.jpg",
     };
 
-    const [movieInfo, setMovieInfo] = React.useState({
-        ...defaultValues,
+    const validate = (values) => {
+        const errors = {};
+        if (!values.title) {
+            errors.title = "Title Required";
+        }
+        if (values.genres.length === 0) {
+            errors.genres = "Please select at least one genre";
+        }
+        if (!values.release_date) {
+            errors.release_date = "Release Date Required";
+        }
+        if (!values.overview) {
+            errors.overview = "Overview Required";
+        }
+        if (values.runtime === 0) {
+            errors.runtime = "Runtime Required";
+        }
+        return errors;
+    };
+
+    const addForm = useFormik({
+        initialValues: {
+            ...initialValues,
+        },
+        validateOnChange: false,
+        validate,
+        onSubmit: (values) => {
+            delete values.id;
+            dispatch({ type: sagaActions.ADD_MOVIE, payload: values });
+            closeModal();
+        },
     });
 
-    React.useEffect(() => {
-        //Reset state for modal when it opens
-        if (modalProps.type === "Add Movie") {
-            setMovieInfo({ ...defaultValues });
-        } else {
-            setMovieInfo({ ...modalProps.info });
-        }
-    }, [modalProps]);
+    const editForm = useFormik({
+        enableReinitialize: true,
+        initialValues: {
+            ...initialValues,
+        },
+        validateOnChange: false,
+        validate,
+        onSubmit: (values) => {
+            dispatch({ type: sagaActions.EDIT_MOVIE, payload: values });
+            closeModal();
+        },
+    });
 
-    const reset = (e) => {
+    const deleteMovie = (e) => {
         e.preventDefault();
-        if (modalProps.type === "Add Movie") {
-            setMovieInfo({ ...defaultValues });
-        } else {
-            setMovieInfo({ ...modalProps.info });
-        }
+        dispatch({
+            type: sagaActions.DELETE_MOVIE,
+            payload: modalProps.info.id,
+        });
+        closeModal();
     };
 
     const closeModal = () => {
         setModalOptions({ isOpen: false });
     };
 
-    const updateMovie = (e) => {
-        e.preventDefault();
-        setMovieInfo({ ...movieInfo, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        switch (modalProps.type) {
-            case "Add Movie":
-                let title = movieInfo.title === "" ? "No Title" : movieInfo.title;
-                let tagline = movieInfo.tagline === "" ? "No Tagline" : movieInfo.tagline;
-                let release_date = movieInfo.release_date === "" ? "1990-01-01" : movieInfo.release_date;
-                let overview = movieInfo.overview === "" ? "No Overview" : movieInfo.overview;
-                let runtime = Number(movieInfo.runtime)
-
-                dispatch({ type: sagaActions.ADD_MOVIE, payload: {...movieInfo, title, tagline, release_date, overview, runtime } });
-                break;
-            case "Edit Movie":
-                dispatch({ type: sagaActions.EDIT_MOVIE, payload: movieInfo });
-                break;
-            case "Delete Movie":
-                dispatch({ type: sagaActions.DELETE_MOVIE, payload: modalProps.info.id });
-                break;
-            default:
-                throw new Error("No case found");
-        }
-
-        closeModal();
-    };
 
     function returnModalType() {
         let type = modalProps.type;
@@ -98,25 +112,21 @@ export default function Modal() {
             case "Add Movie":
                 return (
                     <AddMovie
-                        movie={movieInfo}
-                        update={updateMovie}
+                        formik={addForm}
                         close={closeModal}
-                        submit={handleSubmit}
-                        reset={reset}
+                        genres={genres}
                     />
                 );
             case "Edit Movie":
                 return (
                     <EditMovie
-                        movie={movieInfo}
-                        update={updateMovie}
+                        formik={editForm}
                         close={closeModal}
-                        submit={handleSubmit}
-                        reset={reset}
+                        genres={genres}
                     />
                 );
             case "Delete Movie":
-                return <DeleteMovie close={closeModal} submit={handleSubmit} />;
+                return <DeleteMovie close={closeModal} submit={deleteMovie} />;
             default:
                 throw new Error("No case match");
         }

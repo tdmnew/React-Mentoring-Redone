@@ -6,21 +6,7 @@ import { DetailsUpdaterContext } from "../../Context/DetailsContext.js";
 
 import "./MovieCard.scss";
 
-export default function MovieCard({
-    id,
-    title,
-    tagline,
-    vote_average,
-    vote_count,
-    genres,
-    release_date,
-    url,
-    overview,
-    budget,
-    revenue,
-    runtime,
-    poster_path,
-}) {
+export default function MovieCard({movie}) {
     const [menuToggled, setMenuToggled] = React.useState(false);
 
     const setModalOptions = React.useContext(ModalUpdaterContext);
@@ -30,21 +16,7 @@ export default function MovieCard({
         e.stopPropagation();
         setDetailsOptions({
             isOpen: true,
-            detailsProps: {
-                id,
-                title,
-                tagline,
-                vote_average,
-                vote_count,
-                genres,
-                release_date,
-                url,
-                overview,
-                budget,
-                revenue,
-                runtime,
-                poster_path,
-            },
+            detailsProps: {...movie},
         });
     };
 
@@ -54,31 +26,20 @@ export default function MovieCard({
             isOpen: true,
             modalProps: {
                 type: "Edit Movie",
-                info: {
-                    id,
-                    title,
-                    tagline,
-                    vote_average,
-                    vote_count,
-                    genres,
-                    release_date,
-                    url,
-                    overview,
-                    budget,
-                    revenue,
-                    runtime,
-                    poster_path,
-                },
+                info: {...movie},
             },
         });
+        setMenuToggled(!menuToggled);
     };
 
     const toggleDeleteModal = (e) => {
+        const id = movie.id
         e.stopPropagation();
         setModalOptions({
             isOpen: true,
             modalProps: { type: "Delete Movie", info: { id } },
         });
+        setMenuToggled(!menuToggled);
     };
 
     const toggleCardMenu = (e) => {
@@ -96,9 +57,9 @@ export default function MovieCard({
             <div className="moviecard poster" onClick={toggleMovieDetails}>
                 <img
                     className="moviecard poster__img"
-                    src={poster_path}
+                    src={movie.poster_path}
                     onError={fallbackImage}
-                    alt={`${title} poster`}
+                    alt={`${movie.title} poster`}
                 />
                 <button
                     className="moviecard poster__btn"
@@ -136,14 +97,14 @@ export default function MovieCard({
             </div>
             <div className="moviecard details">
                 <div className="moviecard details__top">
-                    <h3 className="moviecard details__top--title">{title}</h3>
+                    <h3 className="moviecard details__top--title">{movie.title}</h3>
                     <span className="moviecard details__top--year">
-                        {release_date.substring(0, 4)}
+                        {movie.release_date.substring(0, 4)}
                     </span>
                 </div>
                 <div className="moviecard details__bottom">
                     <span className="moviecard details__bottom--genre">
-                        {genres.length > 1 ? genres.join(", ") : genres}
+                        {movie.genres.length > 1 ? movie.genres.join(", ") : movie.genres}
                     </span>
                 </div>
             </div>
@@ -152,33 +113,36 @@ export default function MovieCard({
 }
 
 MovieCard.propTypes = {
-    id: propTypes.number.isRequired,
-    title: propTypes.string.isRequired,
-    tagline: propTypes.string.isRequired,
-    vote_average: propTypes.number.isRequired,
-    vote_count: propTypes.number.isRequired,
-    genres: propTypes.array.isRequired,
-    release_date: propTypes.string.isRequired,
-    url: propTypes.string.isRequired,
-    overview: propTypes.string.isRequired,
-    budget: propTypes.number.isRequired,
-    revenue: propTypes.number.isRequired,
-    runtime: propTypes.number.isRequired,
-    poster_path: propTypes.string.isRequired,
+    movie: propTypes.shape({
+        id: propTypes.number.isRequired,
+        title: propTypes.string.isRequired,
+        tagline: propTypes.string.isRequired,
+        vote_average: propTypes.number.isRequired,
+        vote_count: propTypes.number.isRequired,
+        genres: propTypes.array.isRequired,
+        release_date: propTypes.string.isRequired,
+        overview: propTypes.string.isRequired,
+        budget: propTypes.number.isRequired,
+        revenue: propTypes.number.isRequired,
+        runtime: propTypes.number.isRequired,
+        poster_path: propTypes.string.isRequired,
+    }),
 };
 
 MovieCard.defaultProps = {
-    id: 1,
-    title: "Blade Runner",
-    tagline: "",
-    vote_average: 4.3,
-    vote_count: 100,
-    genres: ["Sci-Fi"],
-    release_date: "1982-01-01",
-    url: "",
-    overview: "",
-    budget: 100000,
-    revenue: 200000,
-    runtime: 120,
-    poster_path: "https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg",
+    movie: propTypes.shape({
+        id: 1,
+        title: "Blade Runner",
+        tagline: "",
+        vote_average: 4.3,
+        vote_count: 100,
+        genres: ["Sci-Fi"],
+        release_date: "1982-01-01",
+        overview: "",
+        budget: 100000,
+        revenue: 200000,
+        runtime: 120,
+        poster_path:
+            "https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg",
+    }),
 };

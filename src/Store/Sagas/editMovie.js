@@ -6,6 +6,8 @@ import { sagaActions } from "../Sagas/sagaActions";
 
 let API = async (payload) => {
     let movie = payload.payload;
+    delete movie.url;
+
     return axios({
         method: "PUT",
         url: "http://localhost:4000/movies",

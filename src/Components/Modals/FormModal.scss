@@ -17,7 +17,7 @@
         padding: 1rem;
         border-radius: 10px;
         width: 31rem;
-        height: 47rem;
+        height: 50rem;
         background: #232323;
         letter-spacing: 1px;
 
@@ -29,7 +29,7 @@
             font-weight: lighter;
             width: 27rem;
 
-            @media(max-width: 540px) {
+            @media (max-width: 540px) {
                 width: 100%;
                 text-align: center;
             }
@@ -46,6 +46,14 @@
             font-weight: 400;
             color: #f65261;
             padding-bottom: 0.5rem;
+        }
+
+        .error {
+            padding: 0;
+            margin: 0;
+            font-weight: bold;
+            font-size: 12px;
+            color: red;
         }
 
         form {
@@ -95,10 +103,11 @@
         &__movieid {
             background: #232323;
             position: relative;
-            right: .5rem;
+            right: 0.5rem;
         }
 
-        &__select {
+        .multiselect-container {
+            width: 27rem;
             appearance: none;
             -webkit-appearence: none;
             -moz-appearance: none;
@@ -106,6 +115,25 @@
             background: url("../../Assets/Images/arrow.svg") 96.5% 50%
                 no-repeat rgba(85, 85, 85, 0.5);
             background-size: 16px 17px;
+            
+            .searchBox {
+                height: 2rem;
+            }
+
+            .option {
+                color: white;
+                background: #232323;
+            }
+
+            .chip {
+                font-size: 10px;
+                color: white;
+                background: #f65261;
+            }
+        }
+
+        &__select {
+
 
             &:focus {
                 outline: none;

@@ -1,23 +1,28 @@
 import React from "react";
+import { Multiselect } from "multiselect-react-dropdown";
 import propTypes from "prop-types";
 
 import "../FormModal.scss";
 
-export default function EditMovie({ movie, close, update, submit, reset }) {
+export default function EditMovie({ formik, close, genres }) {
+    const handleSelect = (value) => {
+        formik.setFieldValue("genres", value);
+    };
+
     return (
         <div className="form-modal">
             <div className="form-modal container">
                 <button className="container__close-btn" onClick={close}>
                     X
                 </button>
-                <form onSubmit={submit}>
+                <form onSubmit={formik.handleSubmit}>
                     <h2>EDIT MOVIE</h2>
                     <label htmlFor="movieid">
                         <span>MOVIE ID</span>
                         <input
                             name="movieid"
                             className="container__movieid"
-                            value={movie.id || ''}
+                            value={formik.values.id}
                             placeholder="Movie ID"
                             disabled
                         />
@@ -28,10 +33,11 @@ export default function EditMovie({ movie, close, update, submit, reset }) {
                             name="title"
                             className="container__input"
                             placeholder="Movie Title"
-                            value={movie.title || ''}
-                            onChange={update}
+                            value={formik.values.title}
+                            onChange={formik.handleChange}
                         />
                     </label>
+                    { formik.errors.title ? <span className="container error">{formik.errors.title}</span> : null }
                     <label htmlFor="release_date">
                         <span>RELEASE DATE</span>
                         <input
@@ -39,60 +45,61 @@ export default function EditMovie({ movie, close, update, submit, reset }) {
                             className="container__date"
                             placeholder="Movie Release Date"
                             type="date"
-                            value={movie.release_date || ''}
-                            onChange={update}
+                            value={formik.values.release_date}
+                            onChange={formik.handleChange}
                         />
                     </label>
+                    { formik.errors.release_date ? <span className="container error">{formik.errors.release_date}</span> : null }
                     <label htmlFor="url">
                         <span>MOVIE URL</span>
                         <input
                             name="url"
                             className="container__input"
                             placeholder="Movie Website"
-                            value={movie.url || ''}
-                            onChange={update}
+                            value={formik.values.url}
+                            onChange={formik.handleChange}
                         />
                     </label>
+                    { formik.errors.url ? <span className="container error">{formik.errors.url}</span> : null }
                     <label htmlFor="genre">
                         <span>GENRE</span>
-                        <select className="container__select" name="genres" value={movie.genres || ''} onChange={update}>
-                            <option value="Action">
-                                Action
-                            </option>
-                            <option value="Comedy">
-                                Comedy 
-                            </option>
-                            <option value="Thriller">
-                                Thriller
-                            </option>
-                            <option value="Sci-Fi">
-                                Sci-Fi
-                            </option>
-                        </select>
+                        <Multiselect
+                            className="container__select"
+                            name="genres"
+                            isObject={false}
+                            onSelect={handleSelect}
+                            onRemove={handleSelect}
+                            selectedValues={formik.values.genres}
+                            options={genres}
+                        />
                     </label>
+                    { formik.errors.genres ? <span className="container error">{formik.errors.genres}</span> : null }
                     <label htmlFor="overview">
                         <span>OVERVIEW</span>
                         <input
                             name="overview"
                             className="container__input"
                             placeholder="Movie Overview"
-                            value={movie.overview || ''}
-                            onChange={update}
+                            value={formik.values.overview}
+                            onChange={formik.handleChange}
                         />
                     </label>
+                    { formik.errors.overview ? <span className="container error">{formik.errors.overview}</span> : null }
                     <label htmlFor="runtime">
                         <span>RUNTIME</span>
                         <input
                             name="runtime"
                             type="number"
                             className="container__input"
-                            value={movie.runtime || 0}
+                            value={formik.values.runtime}
+                            min="0"
                             placeholder="Movie Runtime"
-                            onChange={update}
+                            onChange={formik.handleChange}
                         />
                     </label>
+                    { formik.errors.runtime ? <span className="container error">{formik.errors.runtime}</span> : null }
                     <div className="container buttons">
-                        <button className="container buttons__reset" onClick={reset}>
+                        <button className="container buttons__reset" onClick={formik.handleReset}>
                             RESET
                         </button>
                         <button className="container buttons__submit" type="submit">
