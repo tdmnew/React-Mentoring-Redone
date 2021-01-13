@@ -17,18 +17,18 @@ export default function AddMovie({ movie, close, update, submit, reset }) {
                             name="title"
                             className="container__input"
                             placeholder="Movie Title"
-                            value={movie.title || ''}
+                            value={movie.title || ""}
                             onChange={update}
                         />
                     </label>
-                    <label htmlFor="releasedate">
+                    <label htmlFor="release_date">
                         <span>RELEASE DATE</span>
                         <input
-                            name="releasedate"
+                            name="release_date"
                             className="container__date"
                             placeholder="Movie Release Date"
                             type="date"
-                            value={movie.releasedate || ''}
+                            value={movie.release_date || ''}
                             onChange={update}
                         />
                     </label>
@@ -42,12 +42,12 @@ export default function AddMovie({ movie, close, update, submit, reset }) {
                             onChange={update}
                         />
                     </label>
-                    <label htmlFor="genre">
+                    <label htmlFor="genres">
                         <span>GENRE</span>
                         <select
                             className="container__select"
-                            name="genre"
-                            value={movie.genre || ''}
+                            name="genres"
+                            value={movie.genres || ''}
                             onChange={update}
                         >
                             <option value="" selected disabled>
@@ -81,9 +81,10 @@ export default function AddMovie({ movie, close, update, submit, reset }) {
                         <span>RUNTIME</span>
                         <input
                             name="runtime"
+                            type="number"
                             className="container__input"
                             placeholder="Movie Runtime"
-                            value={movie.runtime || ''}
+                            value={movie.runtime || 0}
                             onChange={update}
                         />
                     </label>

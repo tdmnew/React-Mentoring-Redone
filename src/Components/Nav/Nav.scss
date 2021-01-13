@@ -25,9 +25,15 @@
     }
 
     &__links {
+        display: flex;
         list-style-type: none;
         margin: 1rem 0;
         padding: 0;
+
+        @media (max-width: 450px) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
         li {
             display: inline;

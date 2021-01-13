@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 import "../FormModal.scss";
 
@@ -31,14 +32,14 @@ export default function EditMovie({ movie, close, update, submit, reset }) {
                             onChange={update}
                         />
                     </label>
-                    <label htmlFor="releasedate">
+                    <label htmlFor="release_date">
                         <span>RELEASE DATE</span>
                         <input
-                            name="releasedate"
+                            name="release_date"
                             className="container__date"
                             placeholder="Movie Release Date"
                             type="date"
-                            value={movie.releasedate || ''}
+                            value={movie.release_date || ''}
                             onChange={update}
                         />
                     </label>
@@ -54,7 +55,7 @@ export default function EditMovie({ movie, close, update, submit, reset }) {
                     </label>
                     <label htmlFor="genre">
                         <span>GENRE</span>
-                        <select className="container__select" name="genre" value={movie.genre || ''} onChange={update}>
+                        <select className="container__select" name="genres" value={movie.genres || ''} onChange={update}>
                             <option value="Action">
                                 Action
                             </option>
@@ -83,8 +84,9 @@ export default function EditMovie({ movie, close, update, submit, reset }) {
                         <span>RUNTIME</span>
                         <input
                             name="runtime"
+                            type="number"
                             className="container__input"
-                            value={movie.runtime || ''}
+                            value={movie.runtime || 0}
                             placeholder="Movie Runtime"
                             onChange={update}
                         />

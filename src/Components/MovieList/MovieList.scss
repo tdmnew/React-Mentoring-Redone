@@ -4,17 +4,17 @@
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    width: 47.5rem;
+    width: 46rem;
     color: #ffffff;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
 
     @media (max-width: 815px) {
-        width: 40rem;
-        justify-content: center;
+        width: 30rem;
     }
-
-    @media (max-width: 700px) {
-        width: auto;
+    
+    @media (max-width: 500px) {
+        width: 18rem;
+        justify-content: center;
     }
 }
 
@@ -23,7 +23,7 @@
     color: #ffffff;
     background: #232323;
 
-    margin: 0.5rem 0 0 0;
+    margin-top: 1.25rem;
 
     @media (max-width: 815px) {
         width: auto;

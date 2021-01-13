@@ -1,5 +1,5 @@
 .moviedetails {
-    height: 13rem;
+    height: 13.5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -81,6 +81,7 @@
         .bottom {
             &__overview {
                 font-weight: lighter;
+                font-size: 14px;
                 margin: 0;
             }
 
