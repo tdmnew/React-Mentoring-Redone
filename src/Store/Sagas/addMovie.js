@@ -23,7 +23,7 @@ let API = async (payload) => {
     })
 };
 
-function* addMovieSaga({ payload }) {
+export function* addMovieSaga({ payload }) {
     try {
         let movie = yield call(API, { payload });
         yield put(addMovie(movie));

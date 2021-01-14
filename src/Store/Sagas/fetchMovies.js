@@ -17,7 +17,7 @@ let API = async () => {
     });
 };
 
-function* fetchMoviesSaga() {
+export function* fetchMoviesSaga() {
     try {
         let movies = yield call(API);
         yield put(fetchMovies(movies));

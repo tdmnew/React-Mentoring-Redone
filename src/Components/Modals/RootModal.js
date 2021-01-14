@@ -105,8 +105,7 @@ export default function Modal() {
         setModalOptions({ isOpen: false });
     };
 
-
-    function returnModalType() {
+    const returnModalType = () => {
         let type = modalProps.type;
         switch (type) {
             case "Add Movie":

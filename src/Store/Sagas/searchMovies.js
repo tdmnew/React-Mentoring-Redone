@@ -21,7 +21,7 @@ let API = async (payload) => {
     });
 };
 
-function* searchMoviesSaga({ payload }) {
+export function* searchMoviesSaga({ payload }) {
     try {
         let movie = yield call(API, { payload });
         yield put(searchMovies(movie));

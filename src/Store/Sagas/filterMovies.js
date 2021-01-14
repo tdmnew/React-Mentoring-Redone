@@ -20,7 +20,7 @@ let API = async (payload) => {
     });
 };
 
-function* filterMoviesSaga({ payload }) {
+export function* filterMoviesSaga({ payload }) {
     try {
         let movies = yield call(API, { payload });
         yield put(filterMovies(movies));

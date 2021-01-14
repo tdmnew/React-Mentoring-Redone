@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1610617095433" clover="3.2.0">
+  <project timestamp="1610617095434" name="All files">
+    <metrics statements="240" coveredstatements="180" conditionals="95" coveredconditionals="72" methods="91" coveredmethods="65" elements="426" coveredelements="317" complexity="0" loc="240" ncloc="240" packages="19" files="29" classes="29"/>
+    <package name="src">
+      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="App.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\App.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="15" count="1" type="stmt"/>
+      </file>
+      <file name="index.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components">
+      <metrics statements="7" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
+      <file name="ErrorBoundary.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\ErrorBoundary.js">
+        <metrics statements="7" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.Footer">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Footer.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\Footer\Footer.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.Header">
+      <metrics statements="24" coveredstatements="18" conditionals="8" coveredconditionals="4" methods="8" coveredmethods="5"/>
+      <file name="Header.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\Header\Header.js">
+        <metrics statements="14" coveredstatements="10" conditionals="6" coveredconditionals="3" methods="4" coveredmethods="2"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+      </file>
+      <file name="Search.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\Header\Search.js">
+        <metrics statements="10" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="3"/>
+        <line num="5" count="7" type="stmt"/>
+        <line num="6" count="7" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="9" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="14" count="7" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="7" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.Layout">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Layout.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\Layout\Layout.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.Modals">
+      <metrics statements="39" coveredstatements="29" conditionals="40" coveredconditionals="35" methods="7" coveredmethods="3"/>
+      <file name="RootModal.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\Modals\RootModal.js">
+        <metrics statements="39" coveredstatements="29" conditionals="40" coveredconditionals="35" methods="7" coveredmethods="3"/>
+        <line num="14" count="63" type="stmt"/>
+        <line num="16" count="63" type="stmt"/>
+        <line num="17" count="63" type="stmt"/>
+        <line num="19" count="63" type="stmt"/>
+        <line num="33" count="63" type="stmt"/>
+        <line num="49" count="63" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="51" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="54" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="57" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="60" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="63" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="64" count="2" type="stmt"/>
+        <line num="66" count="2" type="stmt"/>
+        <line num="69" count="63" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="82" count="63" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="95" count="63" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="104" count="63" type="stmt"/>
+        <line num="105" count="0" type="stmt"/>
+        <line num="108" count="63" type="stmt"/>
+        <line num="109" count="61" type="stmt"/>
+        <line num="110" count="61" type="cond" truecount="3" falsecount="1"/>
+        <line num="112" count="26" type="stmt"/>
+        <line num="120" count="33" type="stmt"/>
+        <line num="128" count="2" type="stmt"/>
+        <line num="130" count="0" type="stmt"/>
+        <line num="134" count="63" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+    <package name="src.Components.Modals.AddMovie">
+      <metrics statements="3" coveredstatements="2" conditionals="12" coveredconditionals="11" methods="2" coveredmethods="1"/>
+      <file name="AddMovie.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\Modals\AddMovie\AddMovie.js">
+        <metrics statements="3" coveredstatements="2" conditionals="12" coveredconditionals="11" methods="2" coveredmethods="1"/>
+        <line num="7" count="26" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="11" count="26" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.Modals.DeleteMovie">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="DeleteMovie.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\Modals\DeleteMovie\DeleteMovie.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.Modals.EditMovie">
+      <metrics statements="3" coveredstatements="2" conditionals="12" coveredconditionals="10" methods="2" coveredmethods="1"/>
+      <file name="EditMovie.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\Modals\EditMovie\EditMovie.js">
+        <metrics statements="3" coveredstatements="2" conditionals="12" coveredconditionals="10" methods="2" coveredmethods="1"/>
+        <line num="8" count="33" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="33" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.MovieCard">
+      <metrics statements="19" coveredstatements="11" conditionals="8" coveredconditionals="6" methods="5" coveredmethods="2"/>
+      <file name="MovieCard.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\MovieCard\MovieCard.js">
+        <metrics statements="19" coveredstatements="11" conditionals="8" coveredconditionals="6" methods="5" coveredmethods="2"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="120" count="3" type="stmt"/>
+        <line num="137" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.MovieDetails">
+      <metrics statements="10" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="4"/>
+      <file name="MovieDetails.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\MovieDetails\MovieDetails.js">
+        <metrics statements="10" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="4"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.MovieList">
+      <metrics statements="10" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="3"/>
+      <file name="MovieList.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\MovieList\MovieList.js">
+        <metrics statements="10" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="3"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.Nav">
+      <metrics statements="14" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="2"/>
+      <file name="Nav.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\Nav\Nav.js">
+        <metrics statements="14" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="2"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.NoMovies">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="NoMovies.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\NoMovies\NoMovies.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.NotFound">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="NotFound.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Components\NotFound\NotFound.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Context">
+      <metrics statements="12" coveredstatements="10" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <file name="ModalContext.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Context\ModalContext.js">
+        <metrics statements="12" coveredstatements="10" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="3" count="7" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="7" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="18" count="7" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Store">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Store\index.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="7" count="8" type="stmt"/>
+        <line num="8" count="8" type="stmt"/>
+        <line num="10" count="8" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Store.Sagas">
+      <metrics statements="66" coveredstatements="51" conditionals="0" coveredconditionals="0" methods="28" coveredmethods="24"/>
+      <file name="addMovie.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Store\Sagas\addMovie.js">
+        <metrics statements="10" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="36" count="8" type="stmt"/>
+      </file>
+      <file name="deleteMovie.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Store\Sagas\deleteMovie.js">
+        <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="28" count="8" type="stmt"/>
+      </file>
+      <file name="editMovie.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Store\Sagas\editMovie.js">
+        <metrics statements="11" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="36" count="8" type="stmt"/>
+      </file>
+      <file name="fetchMovies.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Store\Sagas\fetchMovies.js">
+        <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="30" count="8" type="stmt"/>
+      </file>
+      <file name="filterMovies.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Store\Sagas\filterMovies.js">
+        <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="33" count="8" type="stmt"/>
+      </file>
+      <file name="getMovie.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Store\Sagas\getMovie.js">
+        <metrics statements="9" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="31" count="8" type="stmt"/>
+      </file>
+      <file name="index.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Store\Sagas\index.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="12" count="8" type="stmt"/>
+      </file>
+      <file name="sagaActions.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Store\Sagas\sagaActions.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="9" type="stmt"/>
+      </file>
+      <file name="searchMovies.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Store\Sagas\searchMovies.js">
+        <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="34" count="8" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Store.Slices">
+      <metrics statements="22" coveredstatements="19" conditionals="6" coveredconditionals="3" methods="11" coveredmethods="10"/>
+      <file name="movies.js" path="C:\Users\Tim_New\Projects\React_Training\task3\src\Store\Slices\movies.js">
+        <metrics statements="22" coveredstatements="19" conditionals="6" coveredconditionals="3" methods="11" coveredmethods="10"/>
+        <line num="3" count="10" type="stmt"/>
+        <line num="8" count="10" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="66" count="10" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

@@ -11,15 +11,16 @@ export default function AddMovie({ formik, close, genres }) {
     return (
         <div className="form-modal">
             <div className="form-modal container">
-                <button className="container__close-btn" onClick={close}>
+                <button className="container__close-btn" title="close" onClick={close}>
                     X
                 </button>
                 <form onSubmit={formik.handleSubmit}>
                     <h2>ADD MOVIE</h2>
-                    <label htmlFor="title">
+                    <label aria-labelledby="title">
                         <span>TITLE</span>
                         <input
                             name="title"
+                            title="title"
                             className="container__input"
                             placeholder="Movie Title"
                             value={formik.values.title}
@@ -31,10 +32,11 @@ export default function AddMovie({ formik, close, genres }) {
                             {formik.errors.title}
                         </span>
                     ) : null}
-                    <label htmlFor="release_date">
+                    <label aria-labelledby="release date">
                         <span>RELEASE DATE</span>
                         <input
                             name="release_date"
+                            title="release_date"
                             className="container__date"
                             placeholder="Movie Release Date"
                             type="date"
@@ -47,10 +49,11 @@ export default function AddMovie({ formik, close, genres }) {
                             {formik.errors.release_date}
                         </span>
                     ) : null}
-                    <label htmlFor="url">
+                    <label aria-labelledby="url">
                         <span>MOVIE URL</span>
                         <input
                             name="url"
+                            title="url"
                             className="container__input"
                             placeholder="Movie Website"
                             value={formik.values.url}
@@ -62,11 +65,12 @@ export default function AddMovie({ formik, close, genres }) {
                             {formik.errors.url}
                         </span>
                     ) : null}
-                    <label htmlFor="genres">
+                    <label aria-labelledby="genres">
                         <span>GENRE</span>
                         <Multiselect
                             className="container__select"
                             name="genres"
+                            title="genres"
                             isObject={false}
                             onSelect={handleSelect}
                             selectedValues={formik.values.genres}
@@ -78,10 +82,11 @@ export default function AddMovie({ formik, close, genres }) {
                             {formik.errors.genres}
                         </span>
                     ) : null}
-                    <label htmlFor="overview">
+                    <label aria-labelledby="overview">
                         <span>OVERVIEW</span>
                         <input
                             name="overview"
+                            title="overview"
                             className="container__input"
                             placeholder="Movie Overview"
                             value={formik.values.overview}
@@ -93,10 +98,11 @@ export default function AddMovie({ formik, close, genres }) {
                             {formik.errors.overview}
                         </span>
                     ) : null}
-                    <label htmlFor="runtime">
+                    <label aria-labelledby="runtime">
                         <span>RUNTIME</span>
                         <input
                             name="runtime"
+                            title="runtime"
                             type="number"
                             min="0"
                             className="container__input"
@@ -112,12 +118,14 @@ export default function AddMovie({ formik, close, genres }) {
                     ) : null}
                     <div className="container buttons">
                         <button
+                            title="reset"
                             className="container buttons__reset"
                             onClick={formik.handleReset}
                         >
                             RESET
                         </button>
                         <button
+                            title="submit"
                             className="container buttons__submit"
                             type="submit"
                         >

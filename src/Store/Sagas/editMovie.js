@@ -22,7 +22,7 @@ let API = async (payload) => {
     });
 };
 
-function* editMovieSaga({ payload }) {
+export function* editMovieSaga({ payload }) {
     try {
         delete payload.url;
         let movie = yield call(API, { payload });

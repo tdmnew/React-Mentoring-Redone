@@ -1,0 +1,314 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders matching snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="header"
+      >
+        <div
+          class="header__top"
+        >
+          <h1
+            class="header__top logo"
+          >
+            <span
+              class="header__top logo--left"
+            >
+              netflix
+            </span>
+            <span
+              class="header__top logo--right"
+            >
+              roulette
+            </span>
+          </h1>
+          <button
+            class="header__top btn"
+          >
+            + ADD MOVIE
+          </button>
+        </div>
+        <div
+          class="search"
+        >
+          <h2
+            class="search title"
+          >
+            FIND YOUR MOVIE
+          </h2>
+          <div
+            class="search search-bar"
+          >
+            <input
+              class="search search-bar__input"
+              placeholder="What do you want to watch?"
+              value=""
+            />
+            <button
+              class="search search-bar__btn"
+            >
+              SEARCH
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="nav"
+      >
+        <ul
+          class="nav__links"
+        >
+          <li>
+            <a
+              href="#All"
+            >
+              ALL
+            </a>
+          </li>
+        </ul>
+        <div
+          class="dropdown"
+        >
+          <span
+            class="dropdown__heading"
+          >
+            SORT BY
+          </span>
+          <select
+            class="dropdown__options"
+          >
+            <option
+              value="release_date"
+            >
+              RELEASE DATE
+            </option>
+            <option
+              value="title"
+            >
+              TITLE
+            </option>
+            <option
+              value="genres"
+            >
+              GENRE
+            </option>
+            <option
+              value="vote_average"
+            >
+              RATING
+            </option>
+          </select>
+        </div>
+      </div>
+      <div
+        class="no-movies"
+      >
+        <span
+          class="no-movies__text"
+        >
+          No Movie Found
+        </span>
+      </div>
+      <div
+        class="footer"
+      >
+        <h4
+          class="footer__logo"
+        >
+          <span
+            class="footer__logo--left"
+          >
+            netflix
+          </span>
+          <span
+            class="footer__logo--right"
+          >
+            roulette
+          </span>
+        </h4>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="header"
+    >
+      <div
+        class="header__top"
+      >
+        <h1
+          class="header__top logo"
+        >
+          <span
+            class="header__top logo--left"
+          >
+            netflix
+          </span>
+          <span
+            class="header__top logo--right"
+          >
+            roulette
+          </span>
+        </h1>
+        <button
+          class="header__top btn"
+        >
+          + ADD MOVIE
+        </button>
+      </div>
+      <div
+        class="search"
+      >
+        <h2
+          class="search title"
+        >
+          FIND YOUR MOVIE
+        </h2>
+        <div
+          class="search search-bar"
+        >
+          <input
+            class="search search-bar__input"
+            placeholder="What do you want to watch?"
+            value=""
+          />
+          <button
+            class="search search-bar__btn"
+          >
+            SEARCH
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="nav"
+    >
+      <ul
+        class="nav__links"
+      >
+        <li>
+          <a
+            href="#All"
+          >
+            ALL
+          </a>
+        </li>
+      </ul>
+      <div
+        class="dropdown"
+      >
+        <span
+          class="dropdown__heading"
+        >
+          SORT BY
+        </span>
+        <select
+          class="dropdown__options"
+        >
+          <option
+            value="release_date"
+          >
+            RELEASE DATE
+          </option>
+          <option
+            value="title"
+          >
+            TITLE
+          </option>
+          <option
+            value="genres"
+          >
+            GENRE
+          </option>
+          <option
+            value="vote_average"
+          >
+            RATING
+          </option>
+        </select>
+      </div>
+    </div>
+    <div
+      class="no-movies"
+    >
+      <span
+        class="no-movies__text"
+      >
+        No Movie Found
+      </span>
+    </div>
+    <div
+      class="footer"
+    >
+      <h4
+        class="footer__logo"
+      >
+        <span
+          class="footer__logo--left"
+        >
+          netflix
+        </span>
+        <span
+          class="footer__logo--right"
+        >
+          roulette
+        </span>
+      </h4>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

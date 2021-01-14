@@ -12,12 +12,12 @@ export default function EditMovie({ formik, close, genres }) {
     return (
         <div className="form-modal">
             <div className="form-modal container">
-                <button className="container__close-btn" onClick={close}>
+                <button className="container__close-btn" title="close" onClick={close}>
                     X
                 </button>
                 <form onSubmit={formik.handleSubmit}>
                     <h2>EDIT MOVIE</h2>
-                    <label htmlFor="movieid">
+                    <label aria-labelledby="movieid">
                         <span>MOVIE ID</span>
                         <input
                             name="movieid"
@@ -27,7 +27,7 @@ export default function EditMovie({ formik, close, genres }) {
                             disabled
                         />
                     </label>
-                    <label htmlFor="title">
+                    <label aria-labelledby="title">
                         <span>TITLE</span>
                         <input
                             name="title"
@@ -38,7 +38,7 @@ export default function EditMovie({ formik, close, genres }) {
                         />
                     </label>
                     { formik.errors.title ? <span className="container error">{formik.errors.title}</span> : null }
-                    <label htmlFor="release_date">
+                    <label aria-labelledby="release_date">
                         <span>RELEASE DATE</span>
                         <input
                             name="release_date"
@@ -50,7 +50,7 @@ export default function EditMovie({ formik, close, genres }) {
                         />
                     </label>
                     { formik.errors.release_date ? <span className="container error">{formik.errors.release_date}</span> : null }
-                    <label htmlFor="url">
+                    <label aria-labelledby="url">
                         <span>MOVIE URL</span>
                         <input
                             name="url"
@@ -61,7 +61,7 @@ export default function EditMovie({ formik, close, genres }) {
                         />
                     </label>
                     { formik.errors.url ? <span className="container error">{formik.errors.url}</span> : null }
-                    <label htmlFor="genre">
+                    <label aria-labelledby="genre">
                         <span>GENRE</span>
                         <Multiselect
                             className="container__select"
@@ -74,7 +74,7 @@ export default function EditMovie({ formik, close, genres }) {
                         />
                     </label>
                     { formik.errors.genres ? <span className="container error">{formik.errors.genres}</span> : null }
-                    <label htmlFor="overview">
+                    <label aria-labelledby="overview">
                         <span>OVERVIEW</span>
                         <input
                             name="overview"
@@ -85,7 +85,7 @@ export default function EditMovie({ formik, close, genres }) {
                         />
                     </label>
                     { formik.errors.overview ? <span className="container error">{formik.errors.overview}</span> : null }
-                    <label htmlFor="runtime">
+                    <label aria-labelledby="runtime">
                         <span>RUNTIME</span>
                         <input
                             name="runtime"
@@ -99,10 +99,10 @@ export default function EditMovie({ formik, close, genres }) {
                     </label>
                     { formik.errors.runtime ? <span className="container error">{formik.errors.runtime}</span> : null }
                     <div className="container buttons">
-                        <button className="container buttons__reset" onClick={formik.handleReset}>
+                        <button className="container buttons__reset" title="reset" onClick={formik.handleReset}>
                             RESET
                         </button>
-                        <button className="container buttons__submit" type="submit">
+                        <button className="container buttons__submit" title="submit" type="submit">
                             SUBMIT
                         </button>
                     </div>

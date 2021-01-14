@@ -54,6 +54,7 @@ export default function MovieCard({ movie }) {
                             alt={`${movie.title} poster`}
                         />
                         <button
+                            title="menu"
                             className="moviecard poster__btn"
                             onClick={toggleCardMenu}
                             style={{
@@ -77,6 +78,7 @@ export default function MovieCard({ movie }) {
                             </button>
                             <button
                                 className="moviecard poster menu__edit"
+                                title="edit"
                                 value="edit"
                                 onClick={toggleEditModal}
                             >
@@ -84,6 +86,7 @@ export default function MovieCard({ movie }) {
                             </button>
                             <button
                                 className="moviecard poster menu__delete"
+                                title="delete"
                                 value="delete"
                                 onClick={toggleDeleteModal}
                             >
@@ -97,7 +100,7 @@ export default function MovieCard({ movie }) {
                                 {movie.title}
                             </h3>
                             <span className="moviecard details__top--year">
-                                {movie.release_date.substring(0, 4)}
+                                {movie.release_date !== undefined? movie.release_date.substring(0, 4) : null}
                             </span>
                         </div>
                         <div className="moviecard details__bottom">

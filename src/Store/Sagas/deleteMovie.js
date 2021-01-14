@@ -13,14 +13,11 @@ let API = async (payload) => {
             "Access-Control-Allow-Origin": "*"
         }
     })
-    .then((res) => {
-        return res.data;
-    })
 };
 
-function* deleteMovieSaga({ payload }) {
+export function* deleteMovieSaga({ payload }) {
     try {
-        let movie = yield call(API, { payload });
+        yield call(API, { payload });
         yield put(deleteMovie(payload));
     } catch (e) {
         yield put({ type: "FETCH_FAILED" });
