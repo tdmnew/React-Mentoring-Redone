@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Nav.scss";
 
-//Store
+//Redux
 import { useDispatch, useSelector } from "react-redux";
 import { sagaActions } from "../../Store/Sagas/sagaActions";
 import { sortMovies } from "../../Store/Slices/movies.js";
