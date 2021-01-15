@@ -11,7 +11,6 @@ import MovieList from "./Components/MovieList/MovieList.js";
 import NoMovies from "./Components/NoMovies/NoMovies.js";
 import NotFound from "./Components/NotFound/NotFound.js";
 
-
 export default function App() {
     return (
         <Router>
