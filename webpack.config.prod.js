@@ -16,12 +16,6 @@ module.exports = {
         modules: [path.resolve(__dirname, "./src"), "node_modules"],
         extensions: ["*", ".js", ".jsx"],
     },
-    devServer: {
-        contentBase: path.join(__dirname, "dev"),
-        compress: true,
-        port: 5000,
-        open: true,
-    },
     optimization: {
         splitChunks: {
             chunks: "all",
@@ -50,6 +44,7 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: path.resolve(__dirname, "./public/index.html"),
             filename: "index.html",
+            favicon: "./public/favicon.ico"
         }),
         new webpack.ProvidePlugin({
             _: "lodash",
