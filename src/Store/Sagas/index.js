@@ -9,13 +9,13 @@ import { watchDeleteMovie } from './deleteMovie.js';
 import { watchGetMovie } from './getMovie.js';
 
 export default function* rootSaga() {
-    yield all([
-        watchGetMovie(),
-        watchMovies(),
-        watchMoviesSearch(),
-        watchMoviesFilter(),
-        watchAddMovie(),
-        watchEditMovie(),
-        watchDeleteMovie(),
-    ]);
+  yield all([
+    watchGetMovie(),
+    watchMovies(),
+    watchMoviesSearch(),
+    watchMoviesFilter(),
+    watchAddMovie(),
+    watchEditMovie(),
+    watchDeleteMovie(),
+  ]);
 }

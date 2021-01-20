@@ -14,16 +14,16 @@ describe('Movie List', () => {
             isOpen: false,
         };
 
-        const tree = render(
-            <Provider store={store}>
-                <MemoryRouter>
-                    <ModalStateContext.Provider value={modalOptions}>
-                        <MovieList />
-                    </ModalStateContext.Provider>
-                </MemoryRouter>
-            </Provider>
-        );
+    const tree = render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <ModalStateContext.Provider value={modalOptions}>
+            <MovieList />
+          </ModalStateContext.Provider>
+        </MemoryRouter>
+      </Provider>
+    );
 
-        expect(tree).toMatchSnapshot();
-    });
+    expect(tree).toMatchSnapshot();
+  });
 });
