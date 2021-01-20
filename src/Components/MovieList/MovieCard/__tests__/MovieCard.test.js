@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { render, screen, waitFor, cleanup } from '@testing-library/react';
 import { Provider } from 'react-redux';
 
-import { ModalStateContext } from '../../../Context/ModalContext.js';
+import { ModalStateContext } from '../../../../HOCs/Context/ModalContext';
 import store from '../../../Store/index.js';
 
 import MovieCard from '../MovieCard.js';
