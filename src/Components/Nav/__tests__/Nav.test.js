@@ -15,22 +15,22 @@ describe('Nav', () => {
             isOpen: false,
         };
 
-    const tree = render(
-      <Provider store={store}>
-        <MemoryRouter>
-          <ModalStateContext.Provider value={modalOptions}>
-            <Nav />
-          </ModalStateContext.Provider>
-        </MemoryRouter>
-      </Provider>
-    );
+        const tree = render(
+            <Provider store={store}>
+                <MemoryRouter>
+                    <ModalStateContext.Provider value={modalOptions}>
+                        <Nav />
+                    </ModalStateContext.Provider>
+                </MemoryRouter>
+            </Provider>
+        );
 
-    expect(tree).toMatchSnapshot();
+        expect(tree).toMatchSnapshot();
 
-    expect(screen.getByText(/ALL/i)).toBeInTheDocument();
-    expect(screen.getByText(/RELEASE DATE/i)).toBeInTheDocument();
-    expect(screen.getByText(/TITLE/i)).toBeInTheDocument();
-    expect(screen.getByText(/GENRE/i)).toBeInTheDocument();
-    expect(screen.getByText(/RATING/i)).toBeInTheDocument();
-  });
+        expect(screen.getByText(/ALL/i)).toBeInTheDocument();
+        expect(screen.getByText(/RELEASE DATE/i)).toBeInTheDocument();
+        expect(screen.getByText(/TITLE/i)).toBeInTheDocument();
+        expect(screen.getByText(/GENRE/i)).toBeInTheDocument();
+        expect(screen.getByText(/RATING/i)).toBeInTheDocument();
+    });
 });

@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 {
     "singleQuote": true,
     "tabWidth": 4
 }
+=======
+{
+    "singleQuote": true,
+    "tabWidth": 4
+}
+>>>>>>> 3cf27eb (Added loading spinner for images)
