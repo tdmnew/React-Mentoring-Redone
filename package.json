@@ -9,9 +9,9 @@
         "lint": "eslint src/**/*.js",
         "lint:fix": "eslint src/**/*.js --fix",
         "build": "webpack --mode=production",
-        "dev": "concurrently \"webpack serve --mode=development\" \" cd ./MoviesAPI.ReactJS && npm start \""
+        "dev": "concurrently \"webpack serve --mode=development --history-api-fallback\" \" cd ./MoviesAPI.ReactJS && npm start \""
     },
-    "author": "",
+    "author": "Tim New",
     "license": "ISC",
     "dependencies": {
         "@reduxjs/toolkit": "^1.5.0",
@@ -19,10 +19,13 @@
         "formik": "^2.2.6",
         "i18next": "^19.8.4",
         "multiselect-react-dropdown": "^1.6.3",
+        "nanoid": "^3.1.20",
         "prop-types": "^15.7.2",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-i18next": "^11.8.5",
+        "react-image": "^4.0.3",
+        "react-loader-spinner": "^3.1.14",
         "react-redux": "^7.2.2",
         "react-router": "^5.2.0",
         "react-router-dom": "^5.2.0",

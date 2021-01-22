@@ -5,14 +5,14 @@ import { getMovie } from '../Slices/movies.js';
 import { actions } from '../actionTypes.js';
 
 export function* getMovieSaga({ payload }) {
-  try {
-    const movie = yield call(getMovieAPI, { payload });
-    yield put(getMovie(movie));
-  } catch (e) {
-    yield put({ type: actions.GET_MOVIE_FAILED });
-  }
+    try {
+        const movie = yield call(getMovieAPI, { payload });
+        yield put(getMovie(movie));
+    } catch (e) {
+        yield put({ type: actions.GET_MOVIE_FAILED });
+    }
 }
 
 export function* watchGetMovie() {
-  yield takeEvery(actions.GET_MOVIE, getMovieSaga);
+    yield takeEvery(actions.GET_MOVIE, getMovieSaga);
 }

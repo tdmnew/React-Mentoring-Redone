@@ -8,8 +8,8 @@ const sagaMiddleware = createSagaMiddleware();
 const middleware = [...getDefaultMiddleware({ thunk: false }), sagaMiddleware];
 
 const store = configureStore({
-  reducer: movies.reducer,
-  middleware,
+    reducer: movies.reducer,
+    middleware,
 });
 
 sagaMiddleware.run(rootSaga);

@@ -7,15 +7,15 @@ import Modal from '../../Components/Modals/RootModal.js';
 import { ModalContext } from '../Context/ModalContext.js';
 
 export default function Layout({ children }) {
-  return (
-    <>
-      <ModalContext>
-        <ErrorBoundary>
-          {children}
-          <Modal />
-        </ErrorBoundary>
-        <Footer />
-      </ModalContext>
-    </>
-  );
+    return (
+        <>
+            <ModalContext>
+                <ErrorBoundary>
+                    {children}
+                    <Modal />
+                </ErrorBoundary>
+                <Footer />
+            </ModalContext>
+        </>
+    );
 }

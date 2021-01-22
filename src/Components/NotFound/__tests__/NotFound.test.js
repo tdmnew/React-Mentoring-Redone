@@ -8,12 +8,12 @@ import NotFound from '../NotFound.js';
 import store from '../../../Store/index.js';
 
 it('Renders the not found page matching snapshot', () => {
-  const tree = render(
-    <Provider store={store}>
-      <MemoryRouter>
-        <NotFound />
-      </MemoryRouter>
-    </Provider>
-  );
-  expect(tree).toMatchSnapshot();
+    const tree = render(
+        <Provider store={store}>
+            <MemoryRouter>
+                <NotFound />
+            </MemoryRouter>
+        </Provider>
+    );
+    expect(tree).toMatchSnapshot();
 });

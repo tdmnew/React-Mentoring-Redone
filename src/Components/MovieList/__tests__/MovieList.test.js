@@ -9,21 +9,21 @@ import { ModalStateContext } from '../../../Context/ModalContext.js';
 import store from '../../../Store/index.js';
 
 describe('Movie List', () => {
-  it('Renders the movie list', () => {
-    const modalOptions = {
-      isOpen: false,
-    };
+    it('Renders the movie list', () => {
+        const modalOptions = {
+            isOpen: false,
+        };
 
-    const tree = render(
-      <Provider store={store}>
-        <MemoryRouter>
-          <ModalStateContext.Provider value={modalOptions}>
-            <MovieList />
-          </ModalStateContext.Provider>
-        </MemoryRouter>
-      </Provider>
-    );
+        const tree = render(
+            <Provider store={store}>
+                <MemoryRouter>
+                    <ModalStateContext.Provider value={modalOptions}>
+                        <MovieList />
+                    </ModalStateContext.Provider>
+                </MemoryRouter>
+            </Provider>
+        );
 
-    expect(tree).toMatchSnapshot();
-  });
+        expect(tree).toMatchSnapshot();
+    });
 });

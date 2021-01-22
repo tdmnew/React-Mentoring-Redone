@@ -10,27 +10,27 @@ import { ModalStateContext } from '../../../Context/ModalContext.js';
 import store from '../../../Store/index.js';
 
 describe('Nav', () => {
-  it('Renders the nav bar and default properties', () => {
-    const modalOptions = {
-      isOpen: false,
-    };
+    it('Renders the nav bar and default properties', () => {
+        const modalOptions = {
+            isOpen: false,
+        };
 
-    const tree = render(
-      <Provider store={store}>
-        <MemoryRouter>
-          <ModalStateContext.Provider value={modalOptions}>
-            <Nav />
-          </ModalStateContext.Provider>
-        </MemoryRouter>
-      </Provider>
-    );
+        const tree = render(
+            <Provider store={store}>
+                <MemoryRouter>
+                    <ModalStateContext.Provider value={modalOptions}>
+                        <Nav />
+                    </ModalStateContext.Provider>
+                </MemoryRouter>
+            </Provider>
+        );
 
-    expect(tree).toMatchSnapshot();
+        expect(tree).toMatchSnapshot();
 
-    expect(screen.getByText(/ALL/i)).toBeInTheDocument();
-    expect(screen.getByText(/RELEASE DATE/i)).toBeInTheDocument();
-    expect(screen.getByText(/TITLE/i)).toBeInTheDocument();
-    expect(screen.getByText(/GENRE/i)).toBeInTheDocument();
-    expect(screen.getByText(/RATING/i)).toBeInTheDocument();
-  });
+        expect(screen.getByText(/ALL/i)).toBeInTheDocument();
+        expect(screen.getByText(/RELEASE DATE/i)).toBeInTheDocument();
+        expect(screen.getByText(/TITLE/i)).toBeInTheDocument();
+        expect(screen.getByText(/GENRE/i)).toBeInTheDocument();
+        expect(screen.getByText(/RATING/i)).toBeInTheDocument();
+    });
 });
