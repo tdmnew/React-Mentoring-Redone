@@ -1,14 +1,14 @@
 import api from "./axiosInstance";
 
-const filterMoviesAPI = async (payload) => {
+const filterMoviesAPI = (payload) => {
     const genre = payload.payload;
 
-    return api.get('/movies', {
-        params: { filter: genre }
-    })
-    .then((res) => {
-        return res.data.data;
-    })
-}
+    return api
+        .get("/movies", {
+            params: { filter: genre },
+        })
+        .then((res) => res.data.data)
+        .catch((err) => console.log(err));
+};
 
 export default filterMoviesAPI;
