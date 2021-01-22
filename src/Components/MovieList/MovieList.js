@@ -15,7 +15,7 @@ export default function MovieList() {
     const movies = useSelector((state) => state.movies);
 
     useEffect(() => {
-        let path = history.location.pathname.split('/')[1]
+        const path = history.location.pathname.split('/')[1]
         if(path !== 'films') {
             dispatch({ type: sagaActions.SEARCH_MOVIES, payload: id });
         }

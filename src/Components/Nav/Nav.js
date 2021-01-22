@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -32,26 +32,38 @@ export default function Nav() {
         }
     };
 
+    const returnGenres = useCallback((genres) => genres.map(returnGenre), [
+        genres,
+    ]);
+
+    const returnGenre = (genre) => {
+        return (
+            <li key={genre}>
+                <a href={`#${genre}`} onClick={filter}>
+                    {genre}
+                </a>
+            </li>
+        );
+    };
+
     return (
         <div className="nav">
             <ul className="nav__links">
                 <li>
-                    <a href="#All" onClick={filter}>{t(I18N_KEYS.ALL)}</a>
+                    <a href="#All" onClick={filter}>
+                        {t(I18N_KEYS.ALL)}
+                    </a>
                 </li>
-                {
-                    genres.map((genre) => {
-                        return (
-                            <li key={genre}>
-                                <a href={`#${genre}`} onClick={filter}>{genre}</a>
-                            </li>
-                        )
-                    })
-                }
+                {returnGenres(genres)}
             </ul>
             <div className="dropdown">
-                <span className="dropdown__heading">{t(I18N_KEYS.SORT_BY)}</span>
-                <select className="dropdown__options" onChange={sort} >
-                    <option value="release_date">{t(I18N_KEYS.RELEASE_DATE)}</option>
+                <span className="dropdown__heading">
+                    {t(I18N_KEYS.SORT_BY)}
+                </span>
+                <select className="dropdown__options" onChange={sort}>
+                    <option value="release_date">
+                        {t(I18N_KEYS.RELEASE_DATE)}
+                    </option>
                     <option value="title">{t(I18N_KEYS.TITLE)}</option>
                     <option value="genres">{t(I18N_KEYS.GENRE)}</option>
                     <option value="vote_average">{t(I18N_KEYS.RATING)}</option>

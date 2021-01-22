@@ -18,7 +18,7 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        let path = history.location.pathname.split("/")[1];
+        const path = history.location.pathname.split("/")[1];
         if (path === FILMS_PATH) {
             setIsOpen(true);
         }
