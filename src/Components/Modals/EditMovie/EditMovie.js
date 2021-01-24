@@ -99,7 +99,7 @@ export default function EditMovie({ formik, close }) {
                         <Dropdown
                             options={GENRES}
                             checked={formik.values.genres}
-                            handleClick={handleSelect}
+                            handleSelect={handleSelect}
                         />
                     </label>
                     {formik.errors.genres ? (

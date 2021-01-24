@@ -18,7 +18,7 @@ export default function Dropdown({ options, checked, handleSelect }) {
                 name={`${option}`}
                 value={`${option}`}
                 onChange={handleSelect}
-                checked={!!checked.includes(option)}
+                checked={checked.includes(option)}
             />
             <span className="option__text">{option}</span>
         </label>
