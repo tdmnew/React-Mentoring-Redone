@@ -2,8 +2,8 @@ const webpack = require("webpack");
 const path = require("path");
 
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const SourceMapDevToolPlugin = require("webpack");
 
 module.exports = {
     mode: "development",
@@ -12,7 +12,7 @@ module.exports = {
         filename: "[name].bundle.js",
         chunkFilename: "[name].bundle.js",
         path: path.resolve(__dirname, "dev"),
-        publicPath: "/"
+        publicPath: "/",
     },
     resolve: {
         modules: [path.resolve(__dirname, "./src"), "node_modules"],
@@ -21,6 +21,7 @@ module.exports = {
     watch: true,
     devServer: {
         contentBase: path.join(__dirname, "dev"),
+        historyApiFallback: true,
         compress: true,
         port: 5000,
         open: true,
@@ -54,6 +55,10 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: path.resolve(__dirname, "./public/index.html"),
             filename: "index.html",
+            favicon: "./public/favicon.ico"
+        }),
+        new SourceMapDevToolPlugin({
+            filename: "[file].map"
         }),
         new webpack.ProvidePlugin({
             _: "lodash",
