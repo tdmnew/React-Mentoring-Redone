@@ -1,14 +1,9 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { Multiselect } from "multiselect-react-dropdown";
-
-import { GENRES } from "../../../Core/Constants";
-import { I18N_KEYS } from "../../../Core/I18N";
 
 import "../FormModal.scss";
 
-export default function AddMovie({ formik, close }) {
-    const { t } = useTranslation();
+export default function AddMovie({ formik, close, genres }) {
     const handleSelect = (value) => {
         formik.setFieldValue("genres", value);
     };
@@ -20,14 +15,14 @@ export default function AddMovie({ formik, close }) {
                     X
                 </button>
                 <form onSubmit={formik.handleSubmit}>
-                    <h2>{t(I18N_KEYS.ADD_MOVIE)}</h2>
+                    <h2>ADD MOVIE</h2>
                     <label aria-labelledby="title">
-                        <span>{t(I18N_KEYS.TITLE)}</span>
+                        <span>TITLE</span>
                         <input
                             name="title"
                             title="title"
                             className="container__input"
-                            placeholder={t(I18N_KEYS.MOVIE_TITLE)}
+                            placeholder="Movie Title"
                             value={formik.values.title}
                             onChange={formik.handleChange}
                         />
@@ -38,12 +33,12 @@ export default function AddMovie({ formik, close }) {
                         </span>
                     ) : null}
                     <label aria-labelledby="release date">
-                        <span>{t(I18N_KEYS.RELEASE_DATE)}</span>
+                        <span>RELEASE DATE</span>
                         <input
                             name="release_date"
                             title="release_date"
                             className="container__date"
-                            placeholder={t(I18N_KEYS.MOVIE_RELEASE_DATE)}
+                            placeholder="Movie Release Date"
                             type="date"
                             value={formik.values.release_date}
                             onChange={formik.handleChange}
@@ -55,12 +50,12 @@ export default function AddMovie({ formik, close }) {
                         </span>
                     ) : null}
                     <label aria-labelledby="url">
-                        <span>{t(I18N_KEYS.MOVIE_URL)}</span>
+                        <span>MOVIE URL</span>
                         <input
                             name="url"
                             title="url"
                             className="container__input"
-                            placeholder={t(I18N_KEYS.MOVIE_WEBSITE)}
+                            placeholder="Movie Website"
                             value={formik.values.url}
                             onChange={formik.handleChange}
                         />
@@ -71,7 +66,7 @@ export default function AddMovie({ formik, close }) {
                         </span>
                     ) : null}
                     <label aria-labelledby="genres">
-                        <span>{t(I18N_KEYS.GENRE)}</span>
+                        <span>GENRE</span>
                         <Multiselect
                             className="container__select"
                             name="genres"
@@ -79,7 +74,7 @@ export default function AddMovie({ formik, close }) {
                             isObject={false}
                             onSelect={handleSelect}
                             selectedValues={formik.values.genres}
-                            options={GENRES}
+                            options={genres}
                         />
                     </label>
                     {formik.errors.genres ? (
@@ -88,12 +83,12 @@ export default function AddMovie({ formik, close }) {
                         </span>
                     ) : null}
                     <label aria-labelledby="overview">
-                        <span>{t(I18N_KEYS.OVERVIEW)}</span>
+                        <span>OVERVIEW</span>
                         <input
                             name="overview"
                             title="overview"
                             className="container__input"
-                            placeholder={t(I18N_KEYS.MOVIE_OVERVIEW)}
+                            placeholder="Movie Overview"
                             value={formik.values.overview}
                             onChange={formik.handleChange}
                         />
@@ -104,14 +99,14 @@ export default function AddMovie({ formik, close }) {
                         </span>
                     ) : null}
                     <label aria-labelledby="runtime">
-                        <span>{t(I18N_KEYS.RUNTIME)}</span>
+                        <span>RUNTIME</span>
                         <input
                             name="runtime"
                             title="runtime"
                             type="number"
                             min="0"
                             className="container__input"
-                            placeholder={t(I18N_KEYS.MOVIE_RUNTIME)}
+                            placeholder="Movie Runtime"
                             value={formik.values.runtime}
                             onChange={formik.handleChange}
                         />
@@ -127,14 +122,14 @@ export default function AddMovie({ formik, close }) {
                             className="container buttons__reset"
                             onClick={formik.handleReset}
                         >
-                            {t(I18N_KEYS.RESET)}
+                            RESET
                         </button>
                         <button
                             title="submit"
                             className="container buttons__submit"
                             type="submit"
                         >
-                            {t(I18N_KEYS.SUBMIT)}
+                            SUBMIT
                         </button>
                     </div>
                 </form>
