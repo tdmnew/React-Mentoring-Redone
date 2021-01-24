@@ -1,15 +1,15 @@
 import api from "./axiosInstance";
 
-const editMovieAPI = async (payload) => {
+const editMovieAPI = (payload) => {
     const movie = payload.payload;
     delete movie.url;
 
-    return api.put('/movies', {
-        ...movie
-    })
-    .then((res) => {
-        return res.data;
-    })
-}
+    return api
+        .put("/movies", {
+            ...movie,
+        })
+        .then((res) => res.data)
+        .catch((err) => console.log(err));
+};
 
 export default editMovieAPI;
