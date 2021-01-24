@@ -1,4 +1,7 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+
+import { I18N_KEYS } from "../../Core/I18N";
 
 export default class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -15,7 +18,7 @@ export default class ErrorBoundary extends React.Component {
         if (this.state.hasError) {
             //Fallback message
             return (
-                <h1>Oops, an error has occurred</h1>
+                <h1>{t(I18N_KEYS.ERROR_TEXT)}</h1>
             );
         }
 

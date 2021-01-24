@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import "./MovieDetails.scss";
+import { IMG_FALLBACK } from "../../Core/Constants";
 import { sagaActions } from "../../Store/Sagas/sagaActions.js";
+import "./MovieDetails.scss";
 
 export default function MovieDetails({ id }) {
     const dispatch = useDispatch();
     const fetchedMovie = useSelector((state) => state.selectedMovie);
 
-    const [movie, setMovie] = React.useState({ ...fetchedMovie });
+    const [movie, setMovie] = useState({ ...fetchedMovie });
 
     React.useEffect(() => {
         dispatch({ type: sagaActions.GET_MOVIE, payload: id });
@@ -19,9 +20,13 @@ export default function MovieDetails({ id }) {
     }, [fetchedMovie]);
 
     const fallbackImage = (e) => {
-        e.target.src =
-            "https://linnea.com.ar/wp-content/uploads/2018/09/404PosterNotFound.jpg";
+        e.target.src = IMG_FALLBACK;
     };
+
+    const year =
+        movie.release_date !== undefined
+            ? movie.release_date.substring(0, 4)
+            : null;
 
     return (
         <>
@@ -40,11 +45,7 @@ export default function MovieDetails({ id }) {
                     </div>
                     <span className="text genre">{movie.tagline}</span>
                     <div className="text center">
-                        <span className="text center__year">
-                            {movie.release_date !== undefined
-                                ? movie.release_date.substring(0, 4)
-                                : null}
-                        </span>
+                        <span className="text center__year">{year}</span>
                         <span className="text center__runtime">
                             {movie.runtime} min
                         </span>
