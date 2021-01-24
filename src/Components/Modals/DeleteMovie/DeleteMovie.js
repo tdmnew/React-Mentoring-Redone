@@ -1,12 +1,8 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
-
-import { I18N_KEYS } from "../../../Core/I18N";
 
 import "../MessageModal.scss";
 
 export default function DeleteMovie({ close, submit }) {
-    const { t } = useTranslation();
     return (
         <div className="message-modal">
             <div className="message-modal container">
@@ -14,14 +10,14 @@ export default function DeleteMovie({ close, submit }) {
                     X
                 </button>
                 <form onSubmit={submit}>
-                    <h2>{t(I18N_KEYS.DELETE_MOVIE)}</h2>
-                    <p>{t(I18N_KEYS.DELETE_MOVIE_CONFIRM)}</p>
+                    <h2>DELETE MOVIE</h2>
+                    <p>Are you sure you want to delete this movie?</p>
                     <div className="container buttons">
                         <button
                             className="container buttons__confirm"
                             type="submit"
                         >
-                            {t(I18N_KEYS.CONFIRM)}
+                            CONFIRM
                         </button>
                     </div>
                 </form>
