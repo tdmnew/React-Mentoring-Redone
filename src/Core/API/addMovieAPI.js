@@ -1,4 +1,4 @@
-import api from './axiosInstance';
+import api from "./axiosInstance";
 
 const addMovieAPI = (payload) => {
     const movie = payload.payload;

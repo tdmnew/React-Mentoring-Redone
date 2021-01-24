@@ -1,4 +1,4 @@
-import api from './axiosInstance.js';
+import api from "./axiosInstance.js";
 
 const fetchMoviesAPI = () => {
     return api

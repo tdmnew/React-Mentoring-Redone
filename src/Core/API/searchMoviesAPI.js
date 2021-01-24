@@ -1,4 +1,4 @@
-import api from './axiosInstance';
+import api from "./axiosInstance";
 
 const searchMoviesAPI = (payload) => {
     const term = payload.payload;
