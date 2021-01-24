@@ -1,4 +1,4 @@
-import api from './axiosInstance';
+import api from "./axiosInstance";
 
 const filterMoviesAPI = (payload) => {
     const genre = payload.payload;
