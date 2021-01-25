@@ -1,34 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-
-import { ModalStateContext, ModalUpdaterContext } from "../../Context/ModalContext";
 
 import AddMovie from "./AddMovie/AddMovie.js";
 import EditMovie from "./EditMovie/EditMovie.js";
 import DeleteMovie from "./DeleteMovie/DeleteMovie.js";
-
+import { ModalStateContext, ModalUpdaterContext } from "../../Context/ModalContext.js";
 import { sagaActions } from "../../Store/Sagas/sagaActions.js";
 
 export default function Modal() {
     const dispatch = useDispatch();
 
-    const { isOpen, modalProps } = React.useContext(ModalStateContext);
-    const setModalOptions = React.useContext(ModalUpdaterContext);
-
-    const genres = [
-        "Action",
-        "Adventure",
-        "Animation",
-        "Comedy",
-        "Crime",
-        "Drama",
-        "Fantasy",
-        "Mystery",
-        "Romance",
-        "Science Fiction",
-        "Thriller",
-    ];
+    const { isOpen, modalProps } = useContext(ModalStateContext);
+    const setModalOptions = useContext(ModalUpdaterContext);
 
     const initialValues = {
         id: modalProps.info?.id,
@@ -113,7 +97,6 @@ export default function Modal() {
                     <AddMovie
                         formik={addForm}
                         close={closeModal}
-                        genres={genres}
                     />
                 );
             case "Edit Movie":
@@ -121,7 +104,6 @@ export default function Modal() {
                     <EditMovie
                         formik={editForm}
                         close={closeModal}
-                        genres={genres}
                     />
                 );
             case "Delete Movie":

@@ -1,9 +1,14 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Multiselect } from "multiselect-react-dropdown";
+
+import { GENRES } from "../../../Core/Constants";
+import { I18N_KEYS } from "../../../Core/I18N";
 
 import "../FormModal.scss";
 
-export default function AddMovie({ formik, close, genres }) {
+export default function AddMovie({ formik, close }) {
+    const { t } = useTranslation();
     const handleSelect = (value) => {
         formik.setFieldValue("genres", value);
     };
@@ -15,14 +20,14 @@ export default function AddMovie({ formik, close, genres }) {
                     X
                 </button>
                 <form onSubmit={formik.handleSubmit}>
-                    <h2>ADD MOVIE</h2>
+                    <h2>{t(I18N_KEYS.ADD_MOVIE)}</h2>
                     <label aria-labelledby="title">
-                        <span>TITLE</span>
+                        <span>{t(I18N_KEYS.TITLE)}</span>
                         <input
                             name="title"
                             title="title"
                             className="container__input"
-                            placeholder="Movie Title"
+                            placeholder={t(I18N_KEYS.MOVIE_TITLE)}
                             value={formik.values.title}
                             onChange={formik.handleChange}
                         />
@@ -33,12 +38,12 @@ export default function AddMovie({ formik, close, genres }) {
                         </span>
                     ) : null}
                     <label aria-labelledby="release date">
-                        <span>RELEASE DATE</span>
+                        <span>{t(I18N_KEYS.RELEASE_DATE)}</span>
                         <input
                             name="release_date"
                             title="release_date"
                             className="container__date"
-                            placeholder="Movie Release Date"
+                            placeholder={t(I18N_KEYS.MOVIE_RELEASE_DATE)}
                             type="date"
                             value={formik.values.release_date}
                             onChange={formik.handleChange}
@@ -50,12 +55,12 @@ export default function AddMovie({ formik, close, genres }) {
                         </span>
                     ) : null}
                     <label aria-labelledby="url">
-                        <span>MOVIE URL</span>
+                        <span>{t(I18N_KEYS.MOVIE_URL)}</span>
                         <input
                             name="url"
                             title="url"
                             className="container__input"
-                            placeholder="Movie Website"
+                            placeholder={t(I18N_KEYS.MOVIE_WEBSITE)}
                             value={formik.values.url}
                             onChange={formik.handleChange}
                         />
@@ -66,7 +71,7 @@ export default function AddMovie({ formik, close, genres }) {
                         </span>
                     ) : null}
                     <label aria-labelledby="genres">
-                        <span>GENRE</span>
+                        <span>{t(I18N_KEYS.GENRE)}</span>
                         <Multiselect
                             className="container__select"
                             name="genres"
@@ -74,7 +79,7 @@ export default function AddMovie({ formik, close, genres }) {
                             isObject={false}
                             onSelect={handleSelect}
                             selectedValues={formik.values.genres}
-                            options={genres}
+                            options={GENRES}
                         />
                     </label>
                     {formik.errors.genres ? (
@@ -83,12 +88,12 @@ export default function AddMovie({ formik, close, genres }) {
                         </span>
                     ) : null}
                     <label aria-labelledby="overview">
-                        <span>OVERVIEW</span>
+                        <span>{t(I18N_KEYS.OVERVIEW)}</span>
                         <input
                             name="overview"
                             title="overview"
                             className="container__input"
-                            placeholder="Movie Overview"
+                            placeholder={t(I18N_KEYS.MOVIE_OVERVIEW)}
                             value={formik.values.overview}
                             onChange={formik.handleChange}
                         />
@@ -99,14 +104,14 @@ export default function AddMovie({ formik, close, genres }) {
                         </span>
                     ) : null}
                     <label aria-labelledby="runtime">
-                        <span>RUNTIME</span>
+                        <span>{t(I18N_KEYS.RUNTIME)}</span>
                         <input
                             name="runtime"
                             title="runtime"
                             type="number"
                             min="0"
                             className="container__input"
-                            placeholder="Movie Runtime"
+                            placeholder={t(I18N_KEYS.MOVIE_RUNTIME)}
                             value={formik.values.runtime}
                             onChange={formik.handleChange}
                         />
@@ -122,14 +127,14 @@ export default function AddMovie({ formik, close, genres }) {
                             className="container buttons__reset"
                             onClick={formik.handleReset}
                         >
-                            RESET
+                            {t(I18N_KEYS.RESET)}
                         </button>
                         <button
                             title="submit"
                             className="container buttons__submit"
                             type="submit"
                         >
-                            SUBMIT
+                            {t(I18N_KEYS.SUBMIT)}
                         </button>
                     </div>
                 </form>

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
 
 import Layout from "./Components/Layout/Layout.js";
-import Header from "./Components/Header/Header.js";
+import Header from "./Components/MovieDetails/Header/Header.js";
 import Nav from "./Components/Nav/Nav.js";
 import MovieList from "./Components/MovieList/MovieList.js";
 

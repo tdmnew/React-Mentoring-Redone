@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import propTypes from "prop-types";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-import { ModalUpdaterContext } from "../../Context/ModalContext.js";
+import { IMG_FALLBACK } from "../../../Core/Constants";
+import { I18N_KEYS } from "../../../Core/I18N";
+import { ModalUpdaterContext } from "../../../Context/ModalContext.js";
 
 import "./MovieCard.scss";
 
 export default function MovieCard({ movie }) {
-    const [menuToggled, setMenuToggled] = React.useState(false);
-    const setModalOptions = React.useContext(ModalUpdaterContext);
+    const { t } = useTranslation();
+    const [menuToggled, setMenuToggled] = useState(false);
+    const setModalOptions = useContext(ModalUpdaterContext);
 
     const toggleEditModal = (e) => {
         e.preventDefault();
@@ -38,9 +42,16 @@ export default function MovieCard({ movie }) {
     };
 
     const fallbackImage = (e) => {
-        e.target.src =
-            "https://linnea.com.ar/wp-content/uploads/2018/09/404PosterNotFound.jpg";
+        e.target.src = IMG_FALLBACK;
     };
+
+    const year =
+        movie.release_date !== undefined
+            ? movie.release_date.substring(0, 4)
+            : null;
+
+    const genres =
+        movie.genres.length > 1 ? movie.genres.join(", ") : movie.genres;
 
     return (
         <>
@@ -82,7 +93,7 @@ export default function MovieCard({ movie }) {
                                 value="edit"
                                 onClick={toggleEditModal}
                             >
-                                Edit
+                                {t(I18N_KEYS.EDIT)}
                             </button>
                             <button
                                 className="moviecard poster menu__delete"
@@ -90,7 +101,7 @@ export default function MovieCard({ movie }) {
                                 value="delete"
                                 onClick={toggleDeleteModal}
                             >
-                                Delete
+                                {t(I18N_KEYS.DELETE)}
                             </button>
                         </div>
                     </div>
@@ -100,14 +111,12 @@ export default function MovieCard({ movie }) {
                                 {movie.title}
                             </h3>
                             <span className="moviecard details__top--year">
-                                {movie.release_date !== undefined? movie.release_date.substring(0, 4) : null}
+                                {year}
                             </span>
                         </div>
                         <div className="moviecard details__bottom">
                             <span className="moviecard details__bottom--genre">
-                                {movie.genres.length > 1
-                                    ? movie.genres.join(", ")
-                                    : movie.genres}
+                                {genres}
                             </span>
                         </div>
                     </div>

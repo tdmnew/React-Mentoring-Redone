@@ -1,7 +1,7 @@
 import React from "react";
 
 import Footer from "../Footer/Footer.js";
-import ErrorBoundary from "../ErrorBoundary";
+import ErrorBoundary from "../ErrorBoundary/ErrorBoundary.js";
 
 //Modals
 import Modal from "../Modals/RootModal";
