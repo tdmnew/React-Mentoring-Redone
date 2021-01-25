@@ -4,7 +4,7 @@ import { getByDisplayValue, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
 
-import { ModalStateContext } from '../../../Context/ModalContext.js';
+import { ModalStateContext } from '../../../HOCs/Context/ModalContext';
 import store from '../../../Store/index.js';
 
 import Nav from '../Nav.js';

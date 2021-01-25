@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 
-import { ModalStateContext } from '../../../Context/ModalContext.js';
+import { ModalStateContext } from '../../../HOCs/Context/ModalContext';
 import store from '../../../Store/index.js';
 
 import MovieDetails from '../MovieDetails.js';

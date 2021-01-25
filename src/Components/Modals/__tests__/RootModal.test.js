@@ -4,7 +4,7 @@ import { render, screen, cleanup, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import { ModalStateContext } from '../../../Context/ModalContext.js';
+import { ModalStateContext } from '../../../HOCs/Context/ModalContext';
 import store from '../../../Store/index.js';
 
 import RootModal from '../RootModal.js';
