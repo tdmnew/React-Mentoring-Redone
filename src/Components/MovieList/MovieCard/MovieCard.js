@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import { IMG_FALLBACK } from "../../../Core/Constants";
 import { I18N_KEYS } from "../../../Core/I18N";
-import { ModalUpdaterContext } from "../../../HOCs/Context/ModalContext.js";
+import { ModalUpdaterContext } from "../../../Context/ModalContext.js";
 
 import "./MovieCard.scss";
 
