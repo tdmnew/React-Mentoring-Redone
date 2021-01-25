@@ -3,7 +3,7 @@ const path = require("path");
 
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const SourceMapDevToolPlugin = require("webpack");
+const { SourceMapDevToolPlugin } = require("webpack");
 
 module.exports = {
     mode: "development",

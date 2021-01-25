@@ -6,7 +6,7 @@ import MovieDetails from "../MovieDetails.js";
 import Search from "./Search.js";
 import { FILMS_PATH } from "../../../Core/Constants";
 import { I18N_KEYS } from "../../../Core/I18N";
-import { ModalUpdaterContext } from "../../../HOCs/Context/ModalContext.js";
+import { ModalUpdaterContext } from "../../../Context/ModalContext.js";
 
 import "./Header.scss";
 
