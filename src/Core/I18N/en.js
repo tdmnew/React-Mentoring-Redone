@@ -1,4 +1,4 @@
-var { I18N_KEYS } = require("./index");
+import { I18N_KEYS } from "./index";
 
 const EN = {
     [I18N_KEYS.APP_NAME]: "netflix roulette",
@@ -39,4 +39,3 @@ const EN = {
 export {
     EN
 };
-
