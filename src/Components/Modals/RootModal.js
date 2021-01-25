@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import AddMovie from "./AddMovie/AddMovie.js";
 import EditMovie from "./EditMovie/EditMovie.js";
 import DeleteMovie from "./DeleteMovie/DeleteMovie.js";
-import { ModalStateContext, ModalUpdaterContext } from "../../HOCs/Context/ModalContext.js";
+import { ModalStateContext, ModalUpdaterContext } from "../../Context/ModalContext.js";
 import { sagaActions } from "../../Store/Sagas/sagaActions.js";
 
 export default function Modal() {
