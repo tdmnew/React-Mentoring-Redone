@@ -2,11 +2,12 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams, useHistory } from 'react-router-dom';
 
-import MovieDetails from '../MovieDetails.js';
-import Search from './Search.js';
-import { FILMS_PATH } from '../../../Core/Constants';
+import { ADD_MOVIE, FILMS_PATH } from '../../../Core/Constants';
 import { I18N_KEYS } from '../../../Core/I18N';
 import { ModalUpdaterContext } from '../../../HOCs/Context/ModalContext.js';
+
+import MovieDetails from '../MovieDetails.js';
+import Search from './Search.js';
 
 import './Header.scss';
 
@@ -25,7 +26,7 @@ export default function Header() {
     }, [id]);
 
     const toggleAddMovieModal = () => {
-        setModalOptions({ isOpen: true, modalProps: { type: 'Add Movie' } });
+        setModalOptions({ isOpen: true, modalProps: { type: ADD_MOVIE } });
     };
 
     const toggleDetails = () => {

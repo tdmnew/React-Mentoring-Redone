@@ -2,14 +2,16 @@ import React, { useContext } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 
-import AddMovie from './AddMovie/AddMovie.js';
-import EditMovie from './EditMovie/EditMovie.js';
-import DeleteMovie from './DeleteMovie/DeleteMovie.js';
 import {
     ModalStateContext,
     ModalUpdaterContext,
 } from '../../HOCs/Context/ModalContext.js';
+import { ADD_MOVIE, EDIT_MOVIE, DELETE_MOVIE } from '../../Core/Constants';
 import { actions } from '../../Store/actionTypes.js';
+
+import AddMovie from './AddMovie/AddMovie.js';
+import EditMovie from './EditMovie/EditMovie.js';
+import DeleteMovie from './DeleteMovie/DeleteMovie.js';
 
 export default function Modal() {
     const dispatch = useDispatch();
@@ -97,11 +99,11 @@ export default function Modal() {
     const returnModalType = () => {
         const { type } = modalProps;
         switch (type) {
-            case 'Add Movie':
+            case ADD_MOVIE:
                 return <AddMovie formik={addForm} close={closeModal} />;
-            case 'Edit Movie':
+            case EDIT_MOVIE:
                 return <EditMovie formik={editForm} close={closeModal} />;
-            case 'Delete Movie':
+            case DELETE_MOVIE:
                 return <DeleteMovie close={closeModal} submit={deleteMovie} />;
             default:
                 throw new Error('No case match');

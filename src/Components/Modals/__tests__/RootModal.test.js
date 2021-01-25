@@ -1,15 +1,13 @@
 import React from 'react';
-
-import { render, screen, cleanup, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
+import { render, screen, cleanup, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import RootModal from '../RootModal.js';
-
 import { ModalStateContext } from '../../../Context/ModalContext.js';
 import store from '../../../Store/index.js';
+
+import RootModal from '../RootModal.js';
 
 describe('Root Modal', () => {
     afterEach(cleanup);

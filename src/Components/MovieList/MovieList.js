@@ -2,8 +2,9 @@ import React, { useEffect, useCallback } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import MovieCard from './MovieCard/MovieCard.js';
 import { actions } from '../../Store/actionTypes.js';
+
+import MovieCard from './MovieCard/MovieCard.js';
 
 import './MovieList.scss';
 

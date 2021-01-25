@@ -4,10 +4,16 @@ import Loader from 'react-loader-spinner';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import Image from '../../Image/Image';
-import { IMG_FALLBACK } from '../../../Core/Constants';
+import {
+    IMG_FALLBACK,
+    PRIMARY_COLOUR,
+    EDIT_MOVIE,
+    DELETE_MOVIE,
+} from '../../../Core/Constants';
 import { I18N_KEYS } from '../../../Core/I18N';
 import { ModalUpdaterContext } from '../../../HOCs/Context/ModalContext.js';
+
+import Image from '../../Image/Image';
 
 import './MovieCard.scss';
 
@@ -21,7 +27,7 @@ export default function MovieCard({ movie }) {
         setModalOptions({
             isOpen: true,
             modalProps: {
-                type: 'Edit Movie',
+                type: EDIT_MOVIE,
                 info: { ...movie },
             },
         });
@@ -33,7 +39,7 @@ export default function MovieCard({ movie }) {
         e.preventDefault();
         setModalOptions({
             isOpen: true,
-            modalProps: { type: 'Delete Movie', info: { id } },
+            modalProps: { type: DELETE_MOVIE, info: { id } },
         });
         setMenuToggled(!menuToggled);
     };
@@ -65,7 +71,7 @@ export default function MovieCard({ movie }) {
                                 <Loader
                                     height={320}
                                     width={220}
-                                    color={'#f65261'}
+                                    color={PRIMARY_COLOUR}
                                 />
                             }
                         >

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useImage } from 'react-image';
+
 import { IMG_FALLBACK } from '../../Core/Constants';
 
 export default function Image({ imgSrc, title, type }) {

@@ -2,8 +2,11 @@ import React, { useState, Suspense } from 'react';
 import Loader from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Image from '../Image/Image';
+import { PRIMARY_COLOUR } from '../../Core/Constants';
 import { actions } from '../../Store/actionTypes.js';
+
+import Image from '../Image/Image';
+
 import './MovieDetails.scss';
 
 export default function MovieDetails({ id }) {
@@ -30,7 +33,11 @@ export default function MovieDetails({ id }) {
             <div className="moviedetails">
                 <Suspense
                     fallback={
-                        <Loader height={190} width={80} color={'#f65261'} />
+                        <Loader
+                            height={190}
+                            width={80}
+                            color={PRIMARY_COLOUR}
+                        />
                     }
                 >
                     <Image

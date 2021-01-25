@@ -1,13 +1,13 @@
 import React from 'react';
-
+import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { render, screen, waitFor, cleanup } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import userEvent from '@testing-library/user-event';
 
-import MovieCard from '../MovieCard.js';
 import { ModalStateContext } from '../../../Context/ModalContext.js';
 import store from '../../../Store/index.js';
+
+import MovieCard from '../MovieCard.js';
 
 describe('Movie Card', () => {
     afterEach(cleanup);

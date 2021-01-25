@@ -1,13 +1,13 @@
 import React from 'react';
-
 import { MemoryRouter } from 'react-router-dom';
 import { getByDisplayValue, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
 
-import Nav from '../Nav.js';
 import { ModalStateContext } from '../../../Context/ModalContext.js';
 import store from '../../../Store/index.js';
+
+import Nav from '../Nav.js';
 
 describe('Nav', () => {
     it('Renders the nav bar and default properties', () => {

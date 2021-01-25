@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { expectSaga } from 'redux-saga-test-plan';
 import { call, put } from 'redux-saga/effects';
 

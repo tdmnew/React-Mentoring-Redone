@@ -1,14 +1,13 @@
 import React from 'react';
-
+import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { render, screen, cleanup } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import userEvent from '@testing-library/user-event';
-
-import Header from '../Header.js';
 
 import { ModalStateContext } from '../../../Context/ModalContext.js';
 import store from '../../../Store/index.js';
+
+import Header from '../Header.js';
 
 describe('Header', () => {
     afterEach(cleanup);

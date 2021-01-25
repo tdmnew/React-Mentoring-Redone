@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { nanoid } from 'nanoid';
 
 export default function Dropdown({ options, checked, handleSelect }) {
     const [clicked, setClicked] = useState(false);
@@ -11,7 +10,7 @@ export default function Dropdown({ options, checked, handleSelect }) {
     const renderOptions = (options) => options.map(renderOption);
 
     const renderOption = (option) => (
-        <label className="dropdown option" key={nanoid()}>
+        <label className="dropdown option" key={option}>
             <input
                 type="checkbox"
                 className="option__checkbox"
