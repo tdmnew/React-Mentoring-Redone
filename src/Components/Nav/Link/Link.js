@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 export default function Link({ href, clickAction = null }) {
     const router = useHistory();
     const hash = router.location.hash.slice(1).replace(/%20/g, " ")
-    const classActive = hash === href ? 'link__active' : 'link';
+    const classActive = hash === href ? 'link--active' : 'link';
 
     return (
         <li>
