@@ -1,8 +1,5 @@
 module.exports = {
     roots: ["<rootDir>/src"],
-    moduleNameMapper: {
-        "\\.(css|less|scss)$": "identity-obj-proxy",
-    },
     collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}", "!src/**/*.d.ts"],
     transform: {
         ".+\\.(css|styl|less|sass|scss)$": "jest-css-modules-transform",

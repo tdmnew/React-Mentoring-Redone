@@ -17,18 +17,17 @@ Object {
             <span
               class="header__top logo--left"
             >
-              netflix
+              APP_NAME
             </span>
             <span
               class="header__top logo--right"
-            >
-              roulette
-            </span>
+            />
           </h1>
           <button
             class="header__top btn"
           >
-            + ADD MOVIE
+            ADD_MOVIE
+             +
           </button>
         </div>
         <div
@@ -37,20 +36,20 @@ Object {
           <h2
             class="search title"
           >
-            FIND YOUR MOVIE
+            SEARCH_TITLE
           </h2>
           <div
             class="search search-bar"
           >
             <input
               class="search search-bar__input"
-              placeholder="What do you want to watch?"
+              placeholder="SEARCH_PLACEHOLDER"
               value=""
             />
             <button
               class="search search-bar__btn"
             >
-              SEARCH
+              SEARCH_BUTTON
             </button>
           </div>
         </div>
@@ -63,7 +62,8 @@ Object {
         >
           <li>
             <a
-              href="#All"
+              class="link"
+              href="#ALL"
             >
               ALL
             </a>
@@ -75,7 +75,7 @@ Object {
           <span
             class="dropdown__heading"
           >
-            SORT BY
+            SORT_BY
           </span>
           <select
             class="dropdown__options"
@@ -83,7 +83,7 @@ Object {
             <option
               value="release_date"
             >
-              RELEASE DATE
+              RELEASE_DATE
             </option>
             <option
               value="title"
@@ -109,7 +109,7 @@ Object {
         <span
           class="no-movies__text"
         >
-          No Movie Found
+          NO_MOVIE_FOUND
         </span>
       </div>
       <div
@@ -121,13 +121,11 @@ Object {
           <span
             class="footer__logo--left"
           >
-            netflix
+            APP_NAME
           </span>
           <span
             class="footer__logo--right"
-          >
-            roulette
-          </span>
+          />
         </h4>
       </div>
     </div>
@@ -145,18 +143,17 @@ Object {
           <span
             class="header__top logo--left"
           >
-            netflix
+            APP_NAME
           </span>
           <span
             class="header__top logo--right"
-          >
-            roulette
-          </span>
+          />
         </h1>
         <button
           class="header__top btn"
         >
-          + ADD MOVIE
+          ADD_MOVIE
+           +
         </button>
       </div>
       <div
@@ -165,20 +162,20 @@ Object {
         <h2
           class="search title"
         >
-          FIND YOUR MOVIE
+          SEARCH_TITLE
         </h2>
         <div
           class="search search-bar"
         >
           <input
             class="search search-bar__input"
-            placeholder="What do you want to watch?"
+            placeholder="SEARCH_PLACEHOLDER"
             value=""
           />
           <button
             class="search search-bar__btn"
           >
-            SEARCH
+            SEARCH_BUTTON
           </button>
         </div>
       </div>
@@ -191,7 +188,8 @@ Object {
       >
         <li>
           <a
-            href="#All"
+            class="link"
+            href="#ALL"
           >
             ALL
           </a>
@@ -203,7 +201,7 @@ Object {
         <span
           class="dropdown__heading"
         >
-          SORT BY
+          SORT_BY
         </span>
         <select
           class="dropdown__options"
@@ -211,7 +209,7 @@ Object {
           <option
             value="release_date"
           >
-            RELEASE DATE
+            RELEASE_DATE
           </option>
           <option
             value="title"
@@ -237,7 +235,7 @@ Object {
       <span
         class="no-movies__text"
       >
-        No Movie Found
+        NO_MOVIE_FOUND
       </span>
     </div>
     <div
@@ -249,13 +247,11 @@ Object {
         <span
           class="footer__logo--left"
         >
-          netflix
+          APP_NAME
         </span>
         <span
           class="footer__logo--right"
-        >
-          roulette
-        </span>
+        />
       </h4>
     </div>
   </div>,

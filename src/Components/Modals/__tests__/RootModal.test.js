@@ -1,11 +1,13 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
+import { i18nextProvider } from 'react-i18next';
 import { render, screen, cleanup, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import { ModalStateContext } from '../../../HOCs/Context/ModalContext';
-import store from '../../../Store/index.js';
+import i18n from '../../../i18n';
+import store from '../../../Store';
 
 import RootModal from '../RootModal.js';
 
@@ -52,11 +54,13 @@ describe('Root Modal', () => {
     it('Changes input on Add Movie fields', () => {
         const addMovie = render(
             <Provider store={store}>
-                <MemoryRouter>
-                    <ModalStateContext.Provider value={addMovieOptions}>
-                        <RootModal />
-                    </ModalStateContext.Provider>
-                </MemoryRouter>
+                <i18nextProvider i18n={i18n}>
+                    <MemoryRouter>
+                        <ModalStateContext.Provider value={addMovieOptions}>
+                            <RootModal />
+                        </ModalStateContext.Provider>
+                    </MemoryRouter>
+                </i18nextProvider>
             </Provider>
         );
 
@@ -84,11 +88,13 @@ describe('Root Modal', () => {
     it('Changes input on Edit Movie fields', () => {
         const editMovie = render(
             <Provider store={store}>
-                <MemoryRouter>
-                    <ModalStateContext.Provider value={editMovieOptions}>
-                        <RootModal />
-                    </ModalStateContext.Provider>
-                </MemoryRouter>
+                <i18nextProvider i18n={i18n}>
+                    <MemoryRouter>
+                        <ModalStateContext.Provider value={editMovieOptions}>
+                            <RootModal />
+                        </ModalStateContext.Provider>
+                    </MemoryRouter>
+                </i18nextProvider>
             </Provider>
         );
 
@@ -121,11 +127,13 @@ describe('Root Modal', () => {
     it('Shows validation errors on Add Movie', async () => {
         const addMovie = render(
             <Provider store={store}>
-                <MemoryRouter>
-                    <ModalStateContext.Provider value={addMovieOptions}>
-                        <RootModal />
-                    </ModalStateContext.Provider>
-                </MemoryRouter>
+                <i18nextProvider i18n={i18n}>
+                    <MemoryRouter>
+                        <ModalStateContext.Provider value={addMovieOptions}>
+                            <RootModal />
+                        </ModalStateContext.Provider>
+                    </MemoryRouter>
+                </i18nextProvider>
             </Provider>
         );
 
@@ -144,11 +152,13 @@ describe('Root Modal', () => {
     it('Shows validation errors on Edit Movie', async () => {
         const editMovie = render(
             <Provider store={store}>
-                <MemoryRouter>
-                    <ModalStateContext.Provider value={editMovieOptions}>
-                        <RootModal />
-                    </ModalStateContext.Provider>
-                </MemoryRouter>
+                <i18nextProvider i18n={i18n}>
+                    <MemoryRouter>
+                        <ModalStateContext.Provider value={editMovieOptions}>
+                            <RootModal />
+                        </ModalStateContext.Provider>
+                    </MemoryRouter>
+                </i18nextProvider>
             </Provider>
         );
         const title = screen.getByLabelText(/title/i);
@@ -179,11 +189,13 @@ describe('Root Modal', () => {
     it('Renders the Edit Movie Modal', () => {
         const tree = render(
             <Provider store={store}>
-                <MemoryRouter>
-                    <ModalStateContext.Provider value={editMovieOptions}>
-                        <RootModal />
-                    </ModalStateContext.Provider>
-                </MemoryRouter>
+                <i18nextProvider i18n={i18n}>
+                    <MemoryRouter>
+                        <ModalStateContext.Provider value={editMovieOptions}>
+                            <RootModal />
+                        </ModalStateContext.Provider>
+                    </MemoryRouter>
+                </i18nextProvider>
             </Provider>
         );
 
@@ -199,11 +211,13 @@ describe('Root Modal', () => {
     it('Renders the Add Movie Modal', () => {
         const addMovie = render(
             <Provider store={store}>
-                <MemoryRouter>
-                    <ModalStateContext.Provider value={addMovieOptions}>
-                        <RootModal />
-                    </ModalStateContext.Provider>
-                </MemoryRouter>
+                <i18nextProvider i18n={i18n}>
+                    <MemoryRouter>
+                        <ModalStateContext.Provider value={addMovieOptions}>
+                            <RootModal />
+                        </ModalStateContext.Provider>
+                    </MemoryRouter>
+                </i18nextProvider>
             </Provider>
         );
 
@@ -219,11 +233,13 @@ describe('Root Modal', () => {
     it('Renders the Delete Movie Modal', () => {
         const tree = render(
             <Provider store={store}>
-                <MemoryRouter>
-                    <ModalStateContext.Provider value={deleteMovieOptions}>
-                        <RootModal />
-                    </ModalStateContext.Provider>
-                </MemoryRouter>
+                <i18nextProvider i18n={i18n}>
+                    <MemoryRouter>
+                        <ModalStateContext.Provider value={deleteMovieOptions}>
+                            <RootModal />
+                        </ModalStateContext.Provider>
+                    </MemoryRouter>
+                </i18nextProvider>
             </Provider>
         );
         expect(tree).toMatchSnapshot();

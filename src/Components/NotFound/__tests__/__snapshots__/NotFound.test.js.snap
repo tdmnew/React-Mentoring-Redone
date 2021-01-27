@@ -17,13 +17,11 @@ Object {
             <span
               class="heading logo--left"
             >
-              netflix
+              APP_NAME
             </span>
             <span
               class="heading logo--right"
-            >
-              roulette
-            </span>
+            />
           </p>
         </div>
         <div
@@ -32,19 +30,19 @@ Object {
           <h3
             class="not-found body__text--top"
           >
-            Page Not Found
+            PAGE_NOT_FOUND
           </h3>
           <h4
             class="not-found body__text--bottom"
           >
-            404
+            FOUR_OH_FOUR
           </h4>
           <a
             aria-current="page"
             class="not-found body__btn active"
             href="/"
           >
-            GO BACK TO HOME
+            GO_HOME
           </a>
         </div>
       </div>
@@ -63,13 +61,11 @@ Object {
           <span
             class="heading logo--left"
           >
-            netflix
+            APP_NAME
           </span>
           <span
             class="heading logo--right"
-          >
-            roulette
-          </span>
+          />
         </p>
       </div>
       <div
@@ -78,19 +74,19 @@ Object {
         <h3
           class="not-found body__text--top"
         >
-          Page Not Found
+          PAGE_NOT_FOUND
         </h3>
         <h4
           class="not-found body__text--bottom"
         >
-          404
+          FOUR_OH_FOUR
         </h4>
         <a
           aria-current="page"
           class="not-found body__btn active"
           href="/"
         >
-          GO BACK TO HOME
+          GO_HOME
         </a>
       </div>
     </div>

@@ -4,8 +4,8 @@ import { MemoryRouter } from 'react-router-dom';
 import { render, screen, cleanup } from '@testing-library/react';
 import { Provider } from 'react-redux';
 
-import { ModalStateContext } from '../../../Context/ModalContext.js';
-import store from '../../../Store/index.js';
+import { ModalStateContext } from '../../../../HOCs/Context/ModalContext';
+import store from '../../../../Store';
 
 import Header from '../Header.js';
 
