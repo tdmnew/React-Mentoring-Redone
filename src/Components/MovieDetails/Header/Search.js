@@ -34,10 +34,12 @@ export default function Search() {
                     value={term}
                     onKeyDown={handleKeyDown}
                     onChange={handleChange}
+                    data-cy="search-bar"
                 />
                 <button
                     className="search search-bar__btn"
                     onClick={handleSearch}
+                    data-cy="search-btn"
                 >
                     {t(I18N_KEYS.SEARCH_BUTTON)}
                 </button>

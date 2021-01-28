@@ -30,7 +30,9 @@ export default function MovieList() {
     return (
         <>
             <div className="total">
-                <span className="total__number">{movies.length}</span>
+                <span className="total__number" data-cy="total">
+                    {movies.length}
+                </span>
                 <span className="total__text"> movies found</span>
             </div>
             <div className="movielist">{renderMovies(movies)}</div>
