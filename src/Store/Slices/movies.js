@@ -1,24 +1,24 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice, current } from '@reduxjs/toolkit';
 
 const initialState = {
     selectedMovie: {},
-    movies: []
+    movies: [],
 };
 
 const moviesSlice = createSlice({
-    name: "movies",
+    name: 'movies',
     initialState,
     reducers: {
         addMovie: (state, action) => {
             state.movies.push(action.payload);
         },
         editMovie: (state, action) => {
-            let updatedMovie = action.payload;
+            const updatedMovie = action.payload;
             // Update movie details if the film is edited
-            if(state.selectedMovie.id === updatedMovie.id) {
+            if (state.selectedMovie.id === updatedMovie.id) {
                 state.selectedMovie = action.payload;
             }
-            //Add the updated movie to the array
+            // Add the updated movie to the array
             state.movies = state.movies.map((movie) => {
                 if (movie.id === updatedMovie.id) {
                     return { ...movie, ...updatedMovie };
@@ -27,10 +27,8 @@ const moviesSlice = createSlice({
             });
         },
         deleteMovie: (state, action) => {
-            let id = action.payload;
-            state.movies = state.movies.filter((movie) => {
-                return movie.id !== id;
-            });
+            const id = action.payload;
+            state.movies = state.movies.filter((movie) => movie.id !== id);
         },
         getMovie: (state, action) => {
             state.selectedMovie = action.payload;
@@ -45,8 +43,8 @@ const moviesSlice = createSlice({
             state.movies = action.payload;
         },
         sortMovies: (state, action) => {
-            let field = action.payload;
-            let oldMovies = state.movies;
+            const field = action.payload;
+            const oldMovies = state.movies;
             state.movies = oldMovies.sort((a, b) =>
                 a[field] > b[field] ? 1 : -1
             );

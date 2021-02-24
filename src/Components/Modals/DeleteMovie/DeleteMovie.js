@@ -1,9 +1,9 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { I18N_KEYS } from "../../../Core/I18N";
+import { I18N_KEYS } from '../../../Core/I18N';
 
-import "../MessageModal.scss";
+import '../MessageModal.scss';
 
 export default function DeleteMovie({ close, submit }) {
     const { t } = useTranslation();

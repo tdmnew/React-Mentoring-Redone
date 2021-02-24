@@ -1,18 +1,18 @@
-import React from "react";
+import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
 
-import { MemoryRouter } from "react-router-dom";
-import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
+import { ModalStateContext } from '../../../HOCs/Context/ModalContext';
+import store from '../../../Store/index.js';
 
-import MovieDetails from "../MovieDetails.js";
-import { ModalStateContext } from "../../../Context/ModalContext.js";
-import store from "../../../Store/index.js";
+import MovieDetails from '../MovieDetails.js';
 
-describe("Movie Card", () => {
-    it("Renders the movie details page", () => {
+describe('Movie Card', () => {
+    it('Renders the movie details page', () => {
         const modalOptions = {
-            isOpen: false
-        }
+            isOpen: false,
+        };
 
         const tree = render(
             <Provider store={store}>

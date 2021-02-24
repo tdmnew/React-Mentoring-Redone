@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, Suspense } from 'react';
+import Loader from 'react-loader-spinner';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { IMG_FALLBACK } from "../../Core/Constants";
-import { sagaActions } from "../../Store/Sagas/sagaActions.js";
-import "./MovieDetails.scss";
+import { PRIMARY_COLOUR } from '../../Core/Constants';
+import { actions } from '../../Store/actionTypes.js';
+
+import Image from '../Image/Image';
+
+import './MovieDetails.scss';
 
 export default function MovieDetails({ id }) {
     const dispatch = useDispatch();
@@ -12,16 +16,12 @@ export default function MovieDetails({ id }) {
     const [movie, setMovie] = useState({ ...fetchedMovie });
 
     React.useEffect(() => {
-        dispatch({ type: sagaActions.GET_MOVIE, payload: id });
+        dispatch({ type: actions.GET_MOVIE, payload: id });
     }, [id]);
 
     React.useEffect(() => {
         setMovie({ ...fetchedMovie });
     }, [fetchedMovie]);
-
-    const fallbackImage = (e) => {
-        e.target.src = IMG_FALLBACK;
-    };
 
     const year =
         movie.release_date !== undefined
@@ -31,11 +31,21 @@ export default function MovieDetails({ id }) {
     return (
         <>
             <div className="moviedetails">
-                <img
-                    className="moviedetails__poster"
-                    onError={fallbackImage}
-                    src={movie.poster_path}
-                />
+                <Suspense
+                    fallback={
+                        <Loader
+                            height={190}
+                            width={80}
+                            color={PRIMARY_COLOUR}
+                        />
+                    }
+                >
+                    <Image
+                        title={movie.title}
+                        imgSrc={movie.poster_path}
+                        type="moviedetails"
+                    />
+                </Suspense>
                 <div className="moviedetails text">
                     <div className="text top">
                         <h2 className="text top__title">{movie.title}</h2>

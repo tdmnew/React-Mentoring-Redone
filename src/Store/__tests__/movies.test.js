@@ -1,76 +1,75 @@
-import React from "react";
+import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
 
-import { MemoryRouter } from "react-router-dom";
-import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
+import movies from '../Slices/movies.js';
 
-import movies from "../Slices/movies.js";
-
-describe("Redux movies slice testing", () => {
+describe('Redux movies slice testing', () => {
     const actions = {
         addMovie: {
-            type: "movies/addMovie",
+            type: 'movies/addMovie',
             payload: {
                 id: 1,
-                title: "Blade Runner",
-                tagline: "",
+                title: 'Blade Runner',
+                tagline: '',
                 vote_average: 4.3,
                 vote_count: 100,
-                genres: ["Sci-Fi"],
-                release_date: "1982-01-01",
-                overview: "",
+                genres: ['Sci-Fi'],
+                release_date: '1982-01-01',
+                overview: '',
                 budget: 100000,
                 revenue: 200000,
                 runtime: 120,
                 poster_path:
-                    "https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg",
+                    'https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg',
             },
         },
         editMovie: {
-            type: "movies/editMovie",
+            type: 'movies/editMovie',
             payload: {
                 id: 1,
-                title: "Blade Runner 2",
-                tagline: "",
+                title: 'Blade Runner 2',
+                tagline: '',
                 vote_average: 4.3,
                 vote_count: 100,
-                genres: ["Sci-Fi"],
-                release_date: "1982-01-01",
-                overview: "",
+                genres: ['Sci-Fi'],
+                release_date: '1982-01-01',
+                overview: '',
                 budget: 100000,
                 revenue: 200000,
                 runtime: 120,
                 poster_path:
-                    "https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg",
+                    'https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg',
             },
         },
         deleteMovie: {
-            type: "movies/deleteMovie",
+            type: 'movies/deleteMovie',
             payload: 1,
         },
         getMovie: {
-            type: "movies/getMovie",
-            payload: { id: 1, title: "test" }
+            type: 'movies/getMovie',
+            payload: { id: 1, title: 'test' },
         },
         fetchMovies: {
-            type: "movies/fetchMovies",
-            payload: [{ id: 1, title: "test" }],
+            type: 'movies/fetchMovies',
+            payload: [{ id: 1, title: 'test' }],
         },
         filterMovies: {
-            type: "movies/filterMovies",
-            payload: [{ id: 1, title: "test" }],
+            type: 'movies/filterMovies',
+            payload: [{ id: 1, title: 'test' }],
         },
         searchMovies: {
-            type: "movies/fetchMovies",
-            payload: [{ id: 1, title: "test" }],
+            type: 'movies/fetchMovies',
+            payload: [{ id: 1, title: 'test' }],
         },
         sortMovies: {
-            type: "movies/sortMovies",
-            payload: "title"
-        }
-    }
+            type: 'movies/sortMovies',
+            payload: 'title',
+        },
+    };
 
-    it("Adds a movie", () => {
+    it('Adds a movie', () => {
         const initialState = {
             selectedMovie: {},
             movies: [],
@@ -81,28 +80,27 @@ describe("Redux movies slice testing", () => {
             movies: [
                 {
                     id: 1,
-                    title: "Blade Runner",
-                    tagline: "",
+                    title: 'Blade Runner',
+                    tagline: '',
                     vote_average: 4.3,
                     vote_count: 100,
-                    genres: ["Sci-Fi"],
-                    release_date: "1982-01-01",
-                    overview: "",
+                    genres: ['Sci-Fi'],
+                    release_date: '1982-01-01',
+                    overview: '',
                     budget: 100000,
                     revenue: 200000,
                     runtime: 120,
                     poster_path:
-                        "https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg",
+                        'https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg',
                 },
             ],
         };
-
 
         const actual = movies.reducer(initialState, actions.addMovie);
         expect(actual).toEqual(expectedState);
     });
 
-    it("Edits a movie", () => {
+    it('Edits a movie', () => {
         const initialState = {
             selectedMovie: {
                 id: 2,
@@ -110,18 +108,18 @@ describe("Redux movies slice testing", () => {
             movies: [
                 {
                     id: 1,
-                    title: "Blade Runner",
-                    tagline: "",
+                    title: 'Blade Runner',
+                    tagline: '',
                     vote_average: 4.3,
                     vote_count: 100,
-                    genres: ["Sci-Fi"],
-                    release_date: "1982-01-01",
-                    overview: "",
+                    genres: ['Sci-Fi'],
+                    release_date: '1982-01-01',
+                    overview: '',
                     budget: 100000,
                     revenue: 200000,
                     runtime: 120,
                     poster_path:
-                        "https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg",
+                        'https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg',
                 },
             ],
         };
@@ -133,18 +131,18 @@ describe("Redux movies slice testing", () => {
             movies: [
                 {
                     id: 1,
-                    title: "Blade Runner 2",
-                    tagline: "",
+                    title: 'Blade Runner 2',
+                    tagline: '',
                     vote_average: 4.3,
                     vote_count: 100,
-                    genres: ["Sci-Fi"],
-                    release_date: "1982-01-01",
-                    overview: "",
+                    genres: ['Sci-Fi'],
+                    release_date: '1982-01-01',
+                    overview: '',
                     budget: 100000,
                     revenue: 200000,
                     runtime: 120,
                     poster_path:
-                        "https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg",
+                        'https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg',
                 },
             ],
         };
@@ -153,7 +151,7 @@ describe("Redux movies slice testing", () => {
         expect(actual).toEqual(expectedState);
     });
 
-    it("Deletes a movie", () => {
+    it('Deletes a movie', () => {
         const initialState = {
             selectedMovie: {},
             movies: [{ id: 1 }],
@@ -168,22 +166,22 @@ describe("Redux movies slice testing", () => {
         expect(actual).toEqual(expectedState);
     });
 
-    it("Updates the selected movie", () => {
+    it('Updates the selected movie', () => {
         const initialState = {
             selectedMovie: {},
             movies: [],
         };
 
         const expectedState = {
-            selectedMovie: { id: 1, title: "test" },
+            selectedMovie: { id: 1, title: 'test' },
             movies: [],
         };
 
         const actual = movies.reducer(initialState, actions.getMovie);
         expect(actual).toEqual(expectedState);
-    })
+    });
 
-    it("Fetches, filters, searches for movies", () => {
+    it('Fetches, filters, searches for movies', () => {
         const initialState = {
             selectedMovie: {},
             movies: [],
@@ -191,9 +189,8 @@ describe("Redux movies slice testing", () => {
 
         const expectedState = {
             selectedMovie: {},
-            movies: [{ id: 1, title: "test" }],
+            movies: [{ id: 1, title: 'test' }],
         };
-
 
         const actualFetch = movies.reducer(initialState, actions.fetchMovies);
         expect(actualFetch).toEqual(expectedState);
@@ -201,21 +198,30 @@ describe("Redux movies slice testing", () => {
         const actualFilter = movies.reducer(initialState, actions.filterMovies);
         expect(actualFilter).toEqual(expectedState);
 
-        const actualSearchMovies = movies.reducer(initialState, actions.searchMovies);
+        const actualSearchMovies = movies.reducer(
+            initialState,
+            actions.searchMovies
+        );
         expect(actualSearchMovies).toEqual(expectedState);
     });
 
-    it("Sorts movies", () => {
+    it('Sorts movies', () => {
         const initialState = {
             selectedMovie: {},
-            movies: [{ id: 2, title: "B" }, { id: 1, title: "A" } ]
+            movies: [
+                { id: 2, title: 'B' },
+                { id: 1, title: 'A' },
+            ],
         };
 
         const expectedState = {
             selectedMovie: {},
-            movies: [{ id: 1, title: "A" }, { id: 2, title: "B" } ]
+            movies: [
+                { id: 1, title: 'A' },
+                { id: 2, title: 'B' },
+            ],
         };
-     
+
         const actual = movies.reducer(initialState, actions.sortMovies);
         expect(actual).toEqual(expectedState);
     });

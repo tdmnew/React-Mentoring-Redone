@@ -1,13 +1,21 @@
-import React, { useState, useContext } from "react";
-import propTypes from "prop-types";
-import { NavLink } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import React, { useState, useContext, Suspense } from 'react';
+import propTypes from 'prop-types';
+import Loader from 'react-loader-spinner';
+import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-import { IMG_FALLBACK } from "../../../Core/Constants";
-import { I18N_KEYS } from "../../../Core/I18N";
-import { ModalUpdaterContext } from "../../../Context/ModalContext.js";
+import {
+    IMG_FALLBACK,
+    PRIMARY_COLOUR,
+    EDIT_MOVIE,
+    DELETE_MOVIE,
+} from '../../../Core/Constants';
+import { I18N_KEYS } from '../../../Core/I18N';
+import { ModalUpdaterContext } from '../../../HOCs/Context/ModalContext.js';
 
-import "./MovieCard.scss";
+import Image from '../../Image/Image';
+
+import './MovieCard.scss';
 
 export default function MovieCard({ movie }) {
     const { t } = useTranslation();
@@ -19,7 +27,7 @@ export default function MovieCard({ movie }) {
         setModalOptions({
             isOpen: true,
             modalProps: {
-                type: "Edit Movie",
+                type: EDIT_MOVIE,
                 info: { ...movie },
             },
         });
@@ -27,11 +35,11 @@ export default function MovieCard({ movie }) {
     };
 
     const toggleDeleteModal = (e) => {
-        const id = movie.id;
+        const { id } = movie;
         e.preventDefault();
         setModalOptions({
             isOpen: true,
-            modalProps: { type: "Delete Movie", info: { id } },
+            modalProps: { type: DELETE_MOVIE, info: { id } },
         });
         setMenuToggled(!menuToggled);
     };
@@ -51,25 +59,34 @@ export default function MovieCard({ movie }) {
             : null;
 
     const genres =
-        movie.genres.length > 1 ? movie.genres.join(", ") : movie.genres;
+        movie.genres.length > 1 ? movie.genres.join(', ') : movie.genres;
 
     return (
         <>
             <NavLink className="link" to={`/films/${movie.id}`}>
                 <div className="moviecard">
                     <div className="moviecard poster">
-                        <img
-                            className="moviecard poster__img"
-                            src={movie.poster_path}
-                            onError={fallbackImage}
-                            alt={`${movie.title} poster`}
-                        />
+                        <Suspense
+                            fallback={
+                                <Loader
+                                    height={320}
+                                    width={220}
+                                    color={PRIMARY_COLOUR}
+                                />
+                            }
+                        >
+                            <Image
+                                type="moviecard"
+                                imgSrc={movie.poster_path}
+                                title={movie.title}
+                            />
+                        </Suspense>
                         <button
                             title="menu"
                             className="moviecard poster__btn"
                             onClick={toggleCardMenu}
                             style={{
-                                display: menuToggled ? "none" : "inherit",
+                                display: menuToggled ? 'none' : 'inherit',
                             }}
                         >
                             &#8942;
@@ -77,7 +94,7 @@ export default function MovieCard({ movie }) {
                         <div
                             className="moviecard poster menu"
                             style={{
-                                display: menuToggled ? "inherit" : "none",
+                                display: menuToggled ? 'inherit' : 'none',
                             }}
                         >
                             <button
@@ -138,7 +155,7 @@ MovieCard.propTypes = {
         overview: propTypes.string.isRequired,
         budget: propTypes.number.isRequired,
         revenue: propTypes.number.isRequired,
-        runtime: propTypes.number.isRequired,
+        runtime: propTypes.number,
         poster_path: propTypes.string.isRequired,
     }),
 };
@@ -146,17 +163,17 @@ MovieCard.propTypes = {
 MovieCard.defaultProps = {
     movie: propTypes.shape({
         id: 1,
-        title: "Blade Runner",
-        tagline: "",
+        title: 'Blade Runner',
+        tagline: '',
         vote_average: 4.3,
         vote_count: 100,
-        genres: ["Sci-Fi"],
-        release_date: "1982-01-01",
-        overview: "",
+        genres: ['Sci-Fi'],
+        release_date: '1982-01-01',
+        overview: '',
         budget: 100000,
         revenue: 200000,
         runtime: 120,
         poster_path:
-            "https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg",
+            'https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/BR-titled.jpg',
     }),
 };

@@ -1,14 +1,15 @@
-import React, { useState, useContext, useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import { useParams, useHistory } from "react-router-dom";
+import React, { useState, useContext, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useParams, useHistory } from 'react-router-dom';
 
-import MovieDetails from "../MovieDetails.js";
-import Search from "./Search.js";
-import { FILMS_PATH } from "../../../Core/Constants";
-import { I18N_KEYS } from "../../../Core/I18N";
-import { ModalUpdaterContext } from "../../../Context/ModalContext.js";
+import { ADD_MOVIE, FILMS_PATH } from '../../../Core/Constants';
+import { I18N_KEYS } from '../../../Core/I18N';
+import { ModalUpdaterContext } from '../../../HOCs/Context/ModalContext.js';
 
-import "./Header.scss";
+import MovieDetails from '../MovieDetails.js';
+import Search from './Search.js';
+
+import './Header.scss';
 
 export default function Header() {
     const { t } = useTranslation();
@@ -18,21 +19,21 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        const path = history.location.pathname.split("/")[1];
+        const path = history.location.pathname.split('/')[1];
         if (path === FILMS_PATH) {
             setIsOpen(true);
         }
     }, [id]);
 
     const toggleAddMovieModal = () => {
-        setModalOptions({ isOpen: true, modalProps: { type: "Add Movie" } });
+        setModalOptions({ isOpen: true, modalProps: { type: ADD_MOVIE } });
     };
 
     const toggleDetails = () => {
         setIsOpen(false);
     };
 
-    const title = t(I18N_KEYS.APP_NAME).split(" ");
+    const title = t(I18N_KEYS.APP_NAME).split(' ');
 
     return (
         <>
@@ -50,7 +51,7 @@ export default function Header() {
                         <button
                             className="header__top btn--search"
                             onClick={toggleDetails}
-                        ></button>
+                        />
                     ) : (
                         <button
                             className="header__top btn"

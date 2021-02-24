@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router-dom';
 
-import { ENTER_KEY } from "../../../Core/Constants";
-import { I18N_KEYS } from "../../../Core/I18N";
+import { ENTER_KEY } from '../../../Core/Constants';
+import { I18N_KEYS } from '../../../Core/I18N';
 
 export default function Search() {
     const { t } = useTranslation();
-    const [term, setTerm] = useState("");
+    const [term, setTerm] = useState('');
     const history = useHistory();
 
     const handleKeyDown = (e) => {

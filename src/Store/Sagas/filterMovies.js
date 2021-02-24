@@ -1,34 +1,18 @@
-import axios from "axios";
-import { call, takeEvery, put } from "redux-saga/effects";
+import { call, takeEvery, put } from 'redux-saga/effects';
 
-import { filterMovies } from "../Slices/movies.js";
-import { sagaActions } from "../Sagas/sagaActions";
-
-let API = async (payload) => {
-    let genre = payload.payload;
-    return axios({
-        method: "get",
-        url: "http://localhost:4000/movies",
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-        },
-        params: {
-            filter: genre,
-        },
-    }).then((res) => {
-        return res.data.data;
-    });
-};
+import filterMoviesAPI from '../../Core/API/filterMoviesAPI';
+import { filterMovies } from '../Slices/movies.js';
+import { actions } from '../actionTypes.js';
 
 export function* filterMoviesSaga({ payload }) {
     try {
-        let movies = yield call(API, { payload });
+        const movies = yield call(filterMoviesAPI, { payload });
         yield put(filterMovies(movies));
     } catch (e) {
-        yield put({ type: "FETCH_FAILED" });
+        yield put({ type: actions.FILTER_MOVIES_FAILED });
     }
 }
 
 export function* watchMoviesFilter() {
-    yield takeEvery(sagaActions.FILTER_MOVIES, filterMoviesSaga);
+    yield takeEvery(actions.FILTER_MOVIES, filterMoviesSaga);
 }

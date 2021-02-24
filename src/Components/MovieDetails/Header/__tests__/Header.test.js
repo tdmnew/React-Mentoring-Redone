@@ -1,23 +1,22 @@
-import React from "react";
+import React from 'react';
+import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router-dom';
+import { render, screen, cleanup } from '@testing-library/react';
+import { Provider } from 'react-redux';
 
-import { MemoryRouter } from "react-router-dom";
-import { render, screen, cleanup } from "@testing-library/react";
-import { Provider } from "react-redux";
-import userEvent from "@testing-library/user-event";
+import { ModalStateContext } from '../../../Context/ModalContext.js';
+import store from '../../../Store/index.js';
 
-import Header from "../Header.js";
+import Header from '../Header.js';
 
-import { ModalStateContext } from "../../../Context/ModalContext.js";
-import store from "../../../Store/index.js";
-
-describe("Header", () => {
-    afterEach(cleanup) 
+describe('Header', () => {
+    afterEach(cleanup);
 
     const modalOptions = {
         isOpen: false,
     };
 
-    it("Renders the header", () => {
+    it('Renders the header', () => {
         const tree = render(
             <Provider store={store}>
                 <MemoryRouter>
@@ -31,7 +30,7 @@ describe("Header", () => {
         expect(tree).toMatchSnapshot();
     });
 
-    it("Accepts search terms as input", () => {
+    it('Accepts search terms as input', () => {
         const tree = render(
             <Provider store={store}>
                 <MemoryRouter>
@@ -42,7 +41,7 @@ describe("Header", () => {
             </Provider>
         );
 
-        const search = screen.getByRole("textbox");
+        const search = screen.getByRole('textbox');
         userEvent.type(search, 'test');
         expect(search).toHaveValue('test');
     });

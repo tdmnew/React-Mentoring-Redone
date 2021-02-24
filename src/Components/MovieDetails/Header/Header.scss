@@ -9,7 +9,8 @@
             rgba(35, 35, 35, 0.9),
             rgba(35, 35, 35, 0.9)
         ),
-        url("../../../Assets/Images/background.png");
+        url('../../../Assets/Images/background.png');
+    background-attachment: fixed;
 
     &__top {
         display: flex;
@@ -60,7 +61,7 @@
             font-size: 30px;
             letter-spacing: 1.5px;
 
-            @media(max-width: 815px) {
+            @media (max-width: 815px) {
                 right: inherit;
             }
         }
@@ -86,15 +87,14 @@
                     outline: none;
                 }
 
-                @media(max-width: 815px) {
-                    width: 20rem; 
+                @media (max-width: 815px) {
+                    width: 20rem;
                 }
 
-                @media(max-width: 530px) {
-                    width: 12.5rem; 
+                @media (max-width: 530px) {
+                    width: 12.5rem;
                 }
             }
-
 
             &__btn {
                 text-decoration: none;
@@ -106,8 +106,8 @@
                 border: none;
                 cursor: pointer;
 
-                @media(max-width: 530px) {
-                    width: 7rem; 
+                @media (max-width: 530px) {
+                    width: 7rem;
                 }
             }
         }

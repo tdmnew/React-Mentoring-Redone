@@ -92,6 +92,77 @@
             background: #232323;
         }
 
+        .dropdown-btn {
+            &:focus {
+                caret-color: transparent;
+                outline: none;
+            }
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            font-family: Arial;
+            font-size: 10px;
+            color: #f65261;
+            border-radius: 5px;
+            height: 0.5rem;
+            width: 25rem;
+            background: url('../../Assets/Images/arrow.svg') 96.5% 50% no-repeat
+                rgba(85, 85, 85, 0.5);
+            background-size: 16px 17px;
+            line-height: 9px;
+            resize: none;
+
+            @media (max-width: 540px) {
+                width: 16rem;
+            }
+        }
+
+        .dropdown {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            padding: 5px 16px;
+            border: 1px solid grey;
+            margin-top: 75px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24.85rem;
+            height: fit-content;
+            border-radius: 5px;
+
+            .option {
+                &:hover {
+                    cursor: pointer;
+                }
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                height: 0.05rem;
+                border: none;
+                margin: 0;
+                overflow: hidden;
+
+                padding: 0.75rem 0;
+
+                &__checkbox {
+                    height: 0.65rem;
+                    width: auto;
+                }
+
+                &__text {
+                    font-size: 12px;
+                    position: relative;
+                    top: 0.2rem;
+                    padding-left: 0.5rem;
+                }
+            }
+
+            @media (max-width: 540px) {
+                width: 16rem;
+            }
+        }
+
         &__input {
             background: rgba(85, 85, 85, 0.5);
 
@@ -106,42 +177,14 @@
             right: 0.5rem;
         }
 
-        .multiselect-container {
-            width: 27rem;
-            appearance: none;
-            -webkit-appearence: none;
-            -moz-appearance: none;
-            -ms-appearance: none;
-            background: url("../../Assets/Images/arrow.svg") 96.5% 50%
-                no-repeat rgba(85, 85, 85, 0.5);
-            background-size: 16px 17px;
-            
-            .searchBox {
-                height: 2rem;
-            }
-
-            .option {
-                color: white;
-                background: #232323;
-            }
-
-            .chip {
-                font-size: 10px;
-                color: white;
-                background: #f65261;
-            }
-        }
-
         &__select {
-
-
             &:focus {
                 outline: none;
             }
         }
 
         &__date {
-            background: url("../../Assets/Images/calendar.svg") 96.5% 50%
+            background: url('../../Assets/Images/calendar.svg') 96.5% 50%
                 no-repeat rgba(85, 85, 85, 0.5);
             background-size: 16px 17px;
 
@@ -151,13 +194,14 @@
         }
 
         /* Remove Default Date Icon */
-        input[type="date"]::-webkit-inner-spin-button,
-        input[type="date"]::-webkit-calendar-picker-indicator {
+        input[type='date']::-webkit-inner-spin-button,
+        input[type='date']::-webkit-calendar-picker-indicator {
             opacity: 0;
             -webkit-appearance: none;
         }
 
         &__close-btn {
+            cursor: pointer;
             position: absolute;
             top: 1rem;
             right: 1rem;

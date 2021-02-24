@@ -1,12 +1,12 @@
-import React, { useCallback } from "react";
-import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { I18N_KEYS } from "../../Core/I18N";
-import { sagaActions } from "../../Store/Sagas/sagaActions";
-import { sortMovies } from "../../Store/Slices/movies.js";
+import { I18N_KEYS } from '../../Core/I18N';
+import { actions } from '../../Store/actionTypes.js';
+import { sortMovies } from '../../Store/Slices/movies.js';
 
-import "./Nav.scss";
+import './Nav.scss';
 
 export default function Nav() {
     const { t } = useTranslation();
@@ -24,11 +24,11 @@ export default function Nav() {
     };
 
     const filter = (e) => {
-        const genre = e.target.getAttribute("href").slice(1);
-        if (genre === "All") {
-            dispatch({ type: sagaActions.FETCH_MOVIES });
+        const genre = e.target.getAttribute('href').slice(1);
+        if (genre === 'All') {
+            dispatch({ type: actions.FETCH_MOVIES });
         } else {
-            dispatch({ type: sagaActions.FILTER_MOVIES, payload: genre });
+            dispatch({ type: actions.FILTER_MOVIES, payload: genre });
         }
     };
 

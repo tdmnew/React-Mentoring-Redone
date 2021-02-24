@@ -1,35 +1,18 @@
-import axios from "axios";
-import { call, takeEvery, put } from "redux-saga/effects";
+import { call, takeEvery, put } from 'redux-saga/effects';
 
-import { searchMovies } from "../Slices/movies.js";
-import { sagaActions } from "../Sagas/sagaActions";
-
-let API = async (payload) => {
-    let term = payload.payload;
-    return axios({
-        method: "get",
-        url: "http://localhost:4000/movies",
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-        },
-        params: {
-            search: term,
-            searchBy: "title",
-        },
-    }).then((res) => {
-        return res.data.data;
-    });
-};
+import searchMoviesAPI from '../../Core/API/searchMoviesAPI';
+import { searchMovies } from '../Slices/movies.js';
+import { actions } from '../actionTypes.js';
 
 export function* searchMoviesSaga({ payload }) {
     try {
-        let movie = yield call(API, { payload });
+        const movie = yield call(searchMoviesAPI, { payload });
         yield put(searchMovies(movie));
     } catch (e) {
-        yield put({ type: "FETCH_FAILED" });
+        yield put({ type: actions.SEARCH_MOVIES_FAILED });
     }
 }
 
 export function* watchMoviesSearch() {
-    yield takeEvery(sagaActions.SEARCH_MOVIES, searchMoviesSaga);
+    yield takeEvery(actions.SEARCH_MOVIES, searchMoviesSaga);
 }

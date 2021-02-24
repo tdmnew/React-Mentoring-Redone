@@ -1,13 +1,13 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { I18N_KEYS } from "../../Core/I18N";
+import { I18N_KEYS } from '../../Core/I18N';
 
-import "./Footer.scss";
+import './Footer.scss';
 
 export default function Footer() {
     const { t } = useTranslation();
-    const title = t(I18N_KEYS.APP_NAME).split(" ")
+    const title = t(I18N_KEYS.APP_NAME).split(' ');
 
     return (
         <div className="footer">
