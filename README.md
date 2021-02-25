@@ -14,4 +14,4 @@ Once the init command has been run, start the project with the 'npm run dev' com
 A build artifact can be created with the 'npm run build' command.
 
 ## Linting
-The project can be lintied with 'npm run lint' and 'npm run lint:fix' to fix errros automatically.
+The project can be lintied with 'npm run lint' and 'npm run lint:fix' to fix errors automatically.
