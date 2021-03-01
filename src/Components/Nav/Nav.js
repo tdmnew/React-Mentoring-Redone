@@ -6,6 +6,8 @@ import { I18N_KEYS } from '../../Core/I18N';
 import { actions } from '../../Store/actionTypes.js';
 import { sortMovies } from '../../Store/Slices/movies.js';
 
+import Link from './Link/Link';
+
 import './Nav.scss';
 
 export default function Nav() {
@@ -17,7 +19,8 @@ export default function Nav() {
         .map((movie) => movie.genres)
         .flat()
         .filter((v, i, s) => s.indexOf(v) === i)
-        .slice(0, 6);
+        .slice(0, 6)
+        .sort();
 
     const sort = (e) => {
         dispatch(sortMovies(e.target.value));
@@ -25,7 +28,7 @@ export default function Nav() {
 
     const filter = (e) => {
         const genre = e.target.getAttribute('href').slice(1);
-        if (genre === 'All') {
+        if (genre === 'ALL') {
             dispatch({ type: actions.FETCH_MOVIES });
         } else {
             dispatch({ type: actions.FILTER_MOVIES, payload: genre });
@@ -37,23 +40,13 @@ export default function Nav() {
     ]);
 
     const returnGenre = (genre) => {
-        return (
-            <li key={genre}>
-                <a href={`#${genre}`} onClick={filter}>
-                    {genre}
-                </a>
-            </li>
-        );
+        return <Link key={genre} href={genre} clickAction={filter} />;
     };
 
     return (
         <div className="nav">
             <ul className="nav__links">
-                <li>
-                    <a href="#All" onClick={filter}>
-                        {t(I18N_KEYS.ALL)}
-                    </a>
-                </li>
+                <Link href={t(I18N_KEYS.ALL)} clickAction={filter} />
                 {returnGenres(genres)}
             </ul>
             <div className="dropdown">

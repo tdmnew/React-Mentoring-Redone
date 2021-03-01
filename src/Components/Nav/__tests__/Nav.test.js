@@ -1,11 +1,13 @@
 import React from 'react';
+import userEvent from '@testing-library/user-event';
+import { i18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
 import { getByDisplayValue, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
 
 import { ModalStateContext } from '../../../HOCs/Context/ModalContext';
-import store from '../../../Store/index.js';
+import i18n from '../../../i18n';
+import store from '../../../Store';
 
 import Nav from '../Nav.js';
 
@@ -17,11 +19,13 @@ describe('Nav', () => {
 
         const tree = render(
             <Provider store={store}>
-                <MemoryRouter>
-                    <ModalStateContext.Provider value={modalOptions}>
-                        <Nav />
-                    </ModalStateContext.Provider>
-                </MemoryRouter>
+                <i18nextProvider i18n={i18n}>
+                    <MemoryRouter>
+                        <ModalStateContext.Provider value={modalOptions}>
+                            <Nav />
+                        </ModalStateContext.Provider>
+                    </MemoryRouter>
+                </i18nextProvider>
             </Provider>
         );
 

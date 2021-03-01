@@ -5,7 +5,7 @@ import { render, screen, waitFor, cleanup } from '@testing-library/react';
 import { Provider } from 'react-redux';
 
 import { ModalStateContext } from '../../../../HOCs/Context/ModalContext';
-import store from '../../../Store/index.js';
+import store from '../../../../Store';
 
 import MovieCard from '../MovieCard.js';
 
