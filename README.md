@@ -6,7 +6,9 @@ The project's goal was to create a single page application allowing users to mak
 
 ## How To Install
 
-Clone this repo and in your project directory run 'npm run init' to download all of the required packages, on both the client and the mock API.
+1. Clone the repo `git clone https://github.com/tdmnew/ReactJSGlobalMentoring-Client.git`
+2. Navigate to the directory created `cd ReactJSGlobalMentoring-Client/` and clone the MoviesAPI `git clone https://github.com/VarvaraZadnepriak/MoviesAPI.ReactJS.git`
+3. Run the command 'npm run init' to download all of the required packages, on both the client and the mock API.
 
 ## Running The Project
 Once the init command has been run, start the project with the 'npm run dev' command which will open the React client application and the mock movies API.
