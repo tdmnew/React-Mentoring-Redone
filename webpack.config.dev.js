@@ -4,6 +4,7 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { SourceMapDevToolPlugin } = require("webpack");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
     mode: "development",
@@ -52,6 +53,9 @@ module.exports = {
         ],
     },
     plugins: [
+        new Dotenv({
+            ignoreStub: true 
+        }),
         new HtmlWebPackPlugin({
             template: path.resolve(__dirname, "./public/index.html"),
             filename: "index.html",
